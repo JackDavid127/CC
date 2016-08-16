@@ -1,0 +1,1250 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		182AC2F81A56F753003D5359 /* OrbeDelayedInstallCombinedRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182AC2BC1A56F753003D5359 /* OrbeDelayedInstallCombinedRunner.cpp */; };
+		182AC3171A62DC55003D5359 /* OrbeDelayedInstallSimulatorRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 182AC3071A62DC55003D5359 /* OrbeDelayedInstallSimulatorRunner.cpp */; };
+		186320C919FC70580015D47C /* ECCombinedRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186320C819FC70580015D47C /* ECCombinedRunner.cpp */; };
+		1863210419FE33AA0015D47C /* OrbeCombinedRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 186320D319FE33AA0015D47C /* OrbeCombinedRunner.cpp */; };
+		1863210719FE3A4E0015D47C /* ECSimulatorRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1863210619FE3A4E0015D47C /* ECSimulatorRunner.cpp */; };
+		1863210919FE3B1A0015D47C /* OrbeSimulatorRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1863210819FE3B1A0015D47C /* OrbeSimulatorRunner.cpp */; };
+		189B245C19F85724006DD887 /* Wire.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 189B245B19F85724006DD887 /* Wire.cpp */; };
+		18EEE3E51A41F9DC00F06DF0 /* BoltOnSimulationRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18F64C261A3F99230041303C /* BoltOnSimulationRunner.cpp */; };
+		18EEE3FD1A430ECA00F06DF0 /* BoltOnCombinedRunner.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18EEE3FC1A430ECA00F06DF0 /* BoltOnCombinedRunner.cpp */; };
+		18F4B9F319EDC43500E43EDD /* SimRunnerAssert.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 18F4B9E919EDC43500E43EDD /* SimRunnerAssert.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		18F4B9B219EDC41600E43EDD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		180169D91A0D8462003C7EA1 /* OrbeDependencyMatrixParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDependencyMatrixParser.h; sourceTree = "<group>"; };
+		180169DA1A0DBB75003C7EA1 /* OrbeVersionVectorCheckRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeVersionVectorCheckRequest.h; sourceTree = "<group>"; };
+		180169DB1A0DBB88003C7EA1 /* OrbeVersionVectorCheckResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeVersionVectorCheckResponse.h; sourceTree = "<group>"; };
+		180169DD1A10A7C7003C7EA1 /* VersionVectorString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionVectorString.h; sourceTree = "<group>"; };
+		180719B41A01746A0003E484 /* OrbePartitionServerGetBeforePutHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbePartitionServerGetBeforePutHandler.h; sourceTree = "<group>"; };
+		180719B51A0174E80003E484 /* OrbePartitionServerReplicationHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbePartitionServerReplicationHandler.h; sourceTree = "<group>"; };
+		180719B61A0177F20003E484 /* OrbePartitionServerGetBeforePutContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbePartitionServerGetBeforePutContext.h; sourceTree = "<group>"; };
+		180719CC1A02C4250003E484 /* OrbeInFlightReplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeInFlightReplication.h; sourceTree = "<group>"; };
+		1810EE331A25426E005676BC /* MetricsStatsWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MetricsStatsWriter.h; sourceTree = "<group>"; };
+		1810EE361A26A785005676BC /* MetaDataStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaDataStats.h; sourceTree = "<group>"; };
+		1810EE381A26A785005676BC /* DelayStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DelayStats.h; sourceTree = "<group>"; };
+		1810EE3A1A26A785005676BC /* ConnectionStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStats.h; sourceTree = "<group>"; };
+		1810EE3B1A26A785005676BC /* ConnectionStatsClientOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionStatsClientOperation.h; sourceTree = "<group>"; };
+		1810EE3C1A26A785005676BC /* SerializedConnectionStats.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SerializedConnectionStats.h; sourceTree = "<group>"; };
+		182AC2A51A475F12003D5359 /* ValueWrapperFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueWrapperFactory.h; sourceTree = "<group>"; };
+		182AC2A61A47926B003D5359 /* Pool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Pool.h; sourceTree = "<group>"; };
+		182AC2A71A47ABB0003D5359 /* Endian.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Endian.h; sourceTree = "<group>"; };
+		182AC2AD1A48509E003D5359 /* ClientConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConfig.h; sourceTree = "<group>"; };
+		182AC2AE1A48509E003D5359 /* ClientConfigParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientConfigParser.h; sourceTree = "<group>"; };
+		182AC2B01A48509E003D5359 /* ServerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConfig.h; sourceTree = "<group>"; };
+		182AC2B11A48509E003D5359 /* ServerConfigParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerConfigParser.h; sourceTree = "<group>"; };
+		182AC2B21A4850ED003D5359 /* ServerNetworkTopologyModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerNetworkTopologyModel.h; sourceTree = "<group>"; };
+		182AC2B71A56F753003D5359 /* OrbeDelayedInstallClientToPartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientToPartitionConnection.h; sourceTree = "<group>"; };
+		182AC2B81A56F753003D5359 /* OrbeDelayedInstallClientToPartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientToPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		182AC2BA1A56F753003D5359 /* client.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = client.py; sourceTree = "<group>"; };
+		182AC2BB1A56F753003D5359 /* connect.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = connect.sh; sourceTree = "<group>"; };
+		182AC2BC1A56F753003D5359 /* OrbeDelayedInstallCombinedRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrbeDelayedInstallCombinedRunner.cpp; sourceTree = "<group>"; };
+		182AC2BF1A56F753003D5359 /* OrbeDelayedInstallClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientConnection.h; sourceTree = "<group>"; };
+		182AC2C01A56F753003D5359 /* OrbeDelayedInstallClientConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientConnectionFactory.h; sourceTree = "<group>"; };
+		182AC2C21A56F753003D5359 /* OrbeDelayedInstallServerExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerExchange.h; sourceTree = "<group>"; };
+		182AC2C31A56F753003D5359 /* OrbeDelayedInstallServerStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerStorage.h; sourceTree = "<group>"; };
+		182AC2C51A56F753003D5359 /* OrbeDelayedInstallPartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionConnection.h; sourceTree = "<group>"; };
+		182AC2C61A56F753003D5359 /* OrbeDelayedInstallPartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		182AC2C81A56F753003D5359 /* OrbeDelayedInstallReplicaConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicaConnection.h; sourceTree = "<group>"; };
+		182AC2C91A56F753003D5359 /* OrbeDelayedInstallReplicaConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicaConnectionFactory.h; sourceTree = "<group>"; };
+		182AC2CB1A56F753003D5359 /* OrbeDelayedInstallClientToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientToServerGetRequest.h; sourceTree = "<group>"; };
+		182AC2CC1A56F753003D5359 /* OrbeDelayedInstallClientToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientToServerPutRequest.h; sourceTree = "<group>"; };
+		182AC2CE1A56F753003D5359 /* OrbeDelayedInstallPartitionIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionIdentityExchange.h; sourceTree = "<group>"; };
+		182AC2CF1A56F753003D5359 /* OrbeDelayedInstallReplicaIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicaIdentityExchange.h; sourceTree = "<group>"; };
+		182AC2D01A56F753003D5359 /* OrbeDelayedInstallReplicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicate.h; sourceTree = "<group>"; };
+		182AC2D11A56F753003D5359 /* OrbeDelayedInstallServerToClientGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToClientGetResponse.h; sourceTree = "<group>"; };
+		182AC2D21A56F753003D5359 /* OrbeDelayedInstallServerToClientPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToClientPutResponse.h; sourceTree = "<group>"; };
+		182AC2D31A56F753003D5359 /* OrbeDelayedInstallServerToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToServerGetRequest.h; sourceTree = "<group>"; };
+		182AC2D41A56F753003D5359 /* OrbeDelayedInstallServerToServerGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToServerGetResponse.h; sourceTree = "<group>"; };
+		182AC2D51A56F753003D5359 /* OrbeDelayedInstallServerToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToServerPutRequest.h; sourceTree = "<group>"; };
+		182AC2D61A56F753003D5359 /* OrbeDelayedInstallServerToServerPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallServerToServerPutResponse.h; sourceTree = "<group>"; };
+		182AC2D71A56F753003D5359 /* OrbeDelayedInstallDependencyTimestampCheckRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallDependencyTimestampCheckRequest.h; sourceTree = "<group>"; };
+		182AC2D81A56F753003D5359 /* OrbeDelayedInstallDependencyTimestampCheckResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallDependencyTimestampCheckResponse.h; sourceTree = "<group>"; };
+		182AC2D91A56F753003D5359 /* OrbeDelayedInstallVersionVectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallVersionVectorParser.h; sourceTree = "<group>"; };
+		182AC2DA1A56F753003D5359 /* OrbeDelayedInstallWire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallWire.h; sourceTree = "<group>"; };
+		182AC2DC1A56F753003D5359 /* OrbeDelayedInstallGetReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallGetReply.h; sourceTree = "<group>"; };
+		182AC2DD1A56F753003D5359 /* OrbeDelayedInstallMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallMessaging.h; sourceTree = "<group>"; };
+		182AC2DE1A56F753003D5359 /* OrbeDelayedInstallPutReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPutReply.h; sourceTree = "<group>"; };
+		182AC2DF1A56F753003D5359 /* OrbeDelayedInstallReplicateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicateMessage.h; sourceTree = "<group>"; };
+		182AC2E01A56F753003D5359 /* OrbeDelayedInstall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstall.h; sourceTree = "<group>"; };
+		182AC2E11A56F753003D5359 /* OrbeDelayedInstallClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClient.h; sourceTree = "<group>"; };
+		182AC2E21A56F753003D5359 /* OrbeDelayedInstallInFlightReplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallInFlightReplication.h; sourceTree = "<group>"; };
+		182AC2E31A56F753003D5359 /* OrbeDelayedInstallItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallItem.h; sourceTree = "<group>"; };
+		182AC2E41A56F753003D5359 /* OrbeDelayedInstallItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallItemData.h; sourceTree = "<group>"; };
+		182AC2E51A56F753003D5359 /* OrbeDelayedInstallPartitionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionServer.h; sourceTree = "<group>"; };
+		182AC2E61A56F753003D5359 /* OrbeDelayedInstallPartitionServerGetBeforePutContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionServerGetBeforePutContext.h; sourceTree = "<group>"; };
+		182AC2E71A56F753003D5359 /* OrbeDelayedInstallPartitionServerGetBeforePutHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionServerGetBeforePutHandler.h; sourceTree = "<group>"; };
+		182AC2E81A56F753003D5359 /* OrbeDelayedInstallPartitionServerReplicationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionServerReplicationHandler.h; sourceTree = "<group>"; };
+		182AC2E91A56F753003D5359 /* OrbeDelayedInstallPendingTimestampQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPendingTimestampQuery.h; sourceTree = "<group>"; };
+		182AC2EA1A56F753003D5359 /* OrbeDelayedInstallSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallSerializer.h; sourceTree = "<group>"; };
+		182AC2FA1A58A3D8003D5359 /* OrbeDelayedInstallClientUpdateSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallClientUpdateSpace.h; sourceTree = "<group>"; };
+		182AC2FB1A59BB6D003D5359 /* OrbeDelayedInstallReplicaUpdateSpace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicaUpdateSpace.h; sourceTree = "<group>"; };
+		182AC3011A60CD95003D5359 /* OrbeDelayedInstallReplicaHeartbeat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicaHeartbeat.h; sourceTree = "<group>"; };
+		182AC3021A60CE1F003D5359 /* OrbeVersionVectorParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeVersionVectorParser.h; sourceTree = "<group>"; };
+		182AC3031A61EAD2003D5359 /* OrbeDelayedInstallManualClientHeartbeat.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallManualClientHeartbeat.h; sourceTree = "<group>"; };
+		182AC3041A61EB2B003D5359 /* OrbeDelayedInstallManualClientStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallManualClientStatus.h; sourceTree = "<group>"; };
+		182AC3061A62DC55003D5359 /* OrbeDelayedInstallSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallSimulation.h; sourceTree = "<group>"; };
+		182AC3071A62DC55003D5359 /* OrbeDelayedInstallSimulatorRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrbeDelayedInstallSimulatorRunner.cpp; sourceTree = "<group>"; };
+		182AC3091A62DC55003D5359 /* OrbeDelayedInstallHeartbeatMessageBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallHeartbeatMessageBundle.h; sourceTree = "<group>"; };
+		182AC30A1A62DC55003D5359 /* OrbeDelayedInstallHeartbeatMessageBundleRequestCompleteHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallHeartbeatMessageBundleRequestCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		182AC30B1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionDependencyCheckOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNeighbourPartitionDependencyCheckOperationState.h; sourceTree = "<group>"; };
+		182AC30C1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionDependencyResponseOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNeighbourPartitionDependencyResponseOperationState.h; sourceTree = "<group>"; };
+		182AC30D1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionGlobalDependencyCheckOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNeighbourPartitionGlobalDependencyCheckOperationState.h; sourceTree = "<group>"; };
+		182AC30E1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionGlobalDependencyResponseOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNeighbourPartitionGlobalDependencyResponseOperationState.h; sourceTree = "<group>"; };
+		182AC30F1A62DC55003D5359 /* OrbeDelayedInstallNetworkCompleteHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNetworkCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		182AC3101A62DC55003D5359 /* OrbeDelayedInstallNetworkGetOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNetworkGetOperationState.h; sourceTree = "<group>"; };
+		182AC3111A62DC55003D5359 /* OrbeDelayedInstallNetworkOperationStateRequestCompleteHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNetworkOperationStateRequestCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		182AC3121A62DC55003D5359 /* OrbeDelayedInstallNetworkPutOperationState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallNetworkPutOperationState.h; sourceTree = "<group>"; };
+		182AC3131A62DC55003D5359 /* OrbeDelayedInstallPartitionServerToLinkMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallPartitionServerToLinkMapping.h; sourceTree = "<group>"; };
+		182AC3141A62DC55003D5359 /* OrbeDelayedInstallReplicateMessageBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicateMessageBundle.h; sourceTree = "<group>"; };
+		182AC3151A62DC55003D5359 /* OrbeDelayedInstallReplicateMessageBundleRequestCompleteHandlerProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallReplicateMessageBundleRequestCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		182AC3161A62DC55003D5359 /* OrbeDelayedInstallSimulatedExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeDelayedInstallSimulatedExchange.h; sourceTree = "<group>"; };
+		182AC3191A64906F003D5359 /* DelayStatsOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelayStatsOperation.h; sourceTree = "<group>"; };
+		182AC31A1A64907F003D5359 /* SerializedDelayStats.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SerializedDelayStats.h; sourceTree = "<group>"; };
+		182AC3251A65D487003D5359 /* OrbeManualClientStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeManualClientStatus.h; sourceTree = "<group>"; };
+		183961EB19FAF44B007DAE23 /* ECClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientConnection.h; sourceTree = "<group>"; };
+		183961EC19FAF44B007DAE23 /* ECClientConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientConnectionFactory.h; sourceTree = "<group>"; };
+		183961ED19FAF454007DAE23 /* ECReplicaConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECReplicaConnection.h; sourceTree = "<group>"; };
+		183961EE19FAF454007DAE23 /* ECReplicaConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECReplicaConnectionFactory.h; sourceTree = "<group>"; };
+		18452D6B19F0F60E00D0CCA5 /* Timing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Timing.h; sourceTree = "<group>"; };
+		18452D7419F4168000D0CCA5 /* ECItemData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECItemData.h; sourceTree = "<group>"; };
+		186320B519FC4E1E0015D47C /* ECClientToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientToServerGetRequest.h; sourceTree = "<group>"; };
+		186320B619FC4E1E0015D47C /* ECClientToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientToServerPutRequest.h; sourceTree = "<group>"; };
+		186320B719FC4E1E0015D47C /* ECPartitionIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPartitionIdentityExchange.h; sourceTree = "<group>"; };
+		186320B819FC4E1E0015D47C /* ECReplicaIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECReplicaIdentityExchange.h; sourceTree = "<group>"; };
+		186320B919FC4E1E0015D47C /* ECReplicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECReplicate.h; sourceTree = "<group>"; };
+		186320BA19FC4E1E0015D47C /* ECServerToClientGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToClientGetResponse.h; sourceTree = "<group>"; };
+		186320BB19FC4E1E0015D47C /* ECServerToClientPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToClientPutResponse.h; sourceTree = "<group>"; };
+		186320BC19FC4E1E0015D47C /* ECServerToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToServerGetRequest.h; sourceTree = "<group>"; };
+		186320BD19FC4E1E0015D47C /* ECServerToServerGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToServerGetResponse.h; sourceTree = "<group>"; };
+		186320BE19FC4E1E0015D47C /* ECServerToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToServerPutRequest.h; sourceTree = "<group>"; };
+		186320BF19FC4E1E0015D47C /* ECServerToServerPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECServerToServerPutResponse.h; sourceTree = "<group>"; };
+		186320C019FC4E1E0015D47C /* ECWire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECWire.h; sourceTree = "<group>"; };
+		186320C119FC55A10015D47C /* ECClientToPartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientToPartitionConnection.h; sourceTree = "<group>"; };
+		186320C219FC55A10015D47C /* ECClientToPartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClientToPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		186320C819FC70580015D47C /* ECCombinedRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ECCombinedRunner.cpp; sourceTree = "<group>"; };
+		186320CA19FD71070015D47C /* ClientRequestGenerator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClientRequestGenerator.h; sourceTree = "<group>"; };
+		186320D119FE33AA0015D47C /* OrbeClientToPartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientToPartitionConnection.h; sourceTree = "<group>"; };
+		186320D219FE33AA0015D47C /* OrbeClientToPartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientToPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		186320D319FE33AA0015D47C /* OrbeCombinedRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrbeCombinedRunner.cpp; sourceTree = "<group>"; };
+		186320D519FE33AA0015D47C /* client.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = client.py; sourceTree = "<group>"; };
+		186320D619FE33AA0015D47C /* connect.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = connect.sh; sourceTree = "<group>"; };
+		186320D919FE33AA0015D47C /* OrbeClientConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientConnection.h; sourceTree = "<group>"; };
+		186320DA19FE33AA0015D47C /* OrbeClientConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientConnectionFactory.h; sourceTree = "<group>"; };
+		186320DF19FE33AA0015D47C /* OrbeServerExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerExchange.h; sourceTree = "<group>"; };
+		186320E019FE33AA0015D47C /* OrbeServerStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerStorage.h; sourceTree = "<group>"; };
+		186320E319FE33AA0015D47C /* OrbePartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbePartitionConnection.h; sourceTree = "<group>"; };
+		186320E419FE33AA0015D47C /* OrbePartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbePartitionConnectionFactory.h; sourceTree = "<group>"; };
+		186320E619FE33AA0015D47C /* OrbeReplicaConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeReplicaConnection.h; sourceTree = "<group>"; };
+		186320E719FE33AA0015D47C /* OrbeReplicaConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeReplicaConnectionFactory.h; sourceTree = "<group>"; };
+		186320E919FE33AA0015D47C /* OrbeClientToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientToServerGetRequest.h; sourceTree = "<group>"; };
+		186320EA19FE33AA0015D47C /* OrbeClientToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClientToServerPutRequest.h; sourceTree = "<group>"; };
+		186320EB19FE33AA0015D47C /* OrbePartitionIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbePartitionIdentityExchange.h; sourceTree = "<group>"; };
+		186320EC19FE33AA0015D47C /* OrbeReplicaIdentityExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeReplicaIdentityExchange.h; sourceTree = "<group>"; };
+		186320ED19FE33AA0015D47C /* OrbeReplicate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeReplicate.h; sourceTree = "<group>"; };
+		186320EE19FE33AA0015D47C /* OrbeServerToClientGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToClientGetResponse.h; sourceTree = "<group>"; };
+		186320EF19FE33AA0015D47C /* OrbeServerToClientPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToClientPutResponse.h; sourceTree = "<group>"; };
+		186320F019FE33AA0015D47C /* OrbeServerToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToServerGetRequest.h; sourceTree = "<group>"; };
+		186320F119FE33AA0015D47C /* OrbeServerToServerGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToServerGetResponse.h; sourceTree = "<group>"; };
+		186320F219FE33AA0015D47C /* OrbeServerToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToServerPutRequest.h; sourceTree = "<group>"; };
+		186320F319FE33AA0015D47C /* OrbeServerToServerPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeServerToServerPutResponse.h; sourceTree = "<group>"; };
+		186320F419FE33AA0015D47C /* OrbeWire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeWire.h; sourceTree = "<group>"; };
+		186320F519FE33AA0015D47C /* Orbe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Orbe.h; sourceTree = "<group>"; };
+		186320F619FE33AA0015D47C /* OrbeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeClient.h; sourceTree = "<group>"; };
+		186320F719FE33AA0015D47C /* OrbeItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeItem.h; sourceTree = "<group>"; };
+		186320F819FE33AA0015D47C /* OrbeItemData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeItemData.h; sourceTree = "<group>"; };
+		186320F919FE33AA0015D47C /* OrbePartitionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbePartitionServer.h; sourceTree = "<group>"; };
+		186320FA19FE33AA0015D47C /* OrbeSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeSerializer.h; sourceTree = "<group>"; };
+		186320FB19FE33AA0015D47C /* OrbeSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeSimulation.h; sourceTree = "<group>"; };
+		186320FD19FE33AA0015D47C /* OrbeGetReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeGetReply.h; sourceTree = "<group>"; };
+		186320FE19FE33AA0015D47C /* OrbeMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeMessaging.h; sourceTree = "<group>"; };
+		186320FF19FE33AA0015D47C /* OrbePutReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbePutReply.h; sourceTree = "<group>"; };
+		1863210019FE33AA0015D47C /* OrbeReplicateMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeReplicateMessage.h; sourceTree = "<group>"; };
+		1863210219FE33AA0015D47C /* OrbeSimulatedExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrbeSimulatedExchange.h; sourceTree = "<group>"; };
+		1863210619FE3A4E0015D47C /* ECSimulatorRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ECSimulatorRunner.cpp; sourceTree = "<group>"; };
+		1863210819FE3B1A0015D47C /* OrbeSimulatorRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OrbeSimulatorRunner.cpp; sourceTree = "<group>"; };
+		1863210A19FEF0C90015D47C /* DependencyMatrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DependencyMatrix.h; sourceTree = "<group>"; };
+		1863210B19FEF1980015D47C /* VersionVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersionVector.h; sourceTree = "<group>"; };
+		189B245319F5ABF9006DD887 /* Host.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Host.h; sourceTree = "<group>"; };
+		189B245419F5CD8F006DD887 /* ConnectionListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConnectionListener.h; sourceTree = "<group>"; };
+		189B245519F635D3006DD887 /* Wire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Wire.h; sourceTree = "<group>"; };
+		189B245919F6DF15006DD887 /* Connection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Connection.h; sourceTree = "<group>"; };
+		189B245B19F85724006DD887 /* Wire.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Wire.cpp; sourceTree = "<group>"; };
+		189B245D19F8EEFA006DD887 /* ConnectionResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionResolver.h; sourceTree = "<group>"; };
+		18EEE3E41A41F5BE00F06DF0 /* BoltOnSimulatedBackingStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnSimulatedBackingStorage.h; sourceTree = "<group>"; };
+		18EEE3E61A41FE7000F06DF0 /* BoltOnSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnSerializer.h; sourceTree = "<group>"; };
+		18EEE3E81A42574800F06DF0 /* ValueWrapperData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueWrapperData.h; sourceTree = "<group>"; };
+		18EEE3EA1A42D1DB00F06DF0 /* ApplyAllWritesState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplyAllWritesState.h; sourceTree = "<group>"; };
+		18EEE3EB1A42D87E00F06DF0 /* ApplySingleWriteState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApplySingleWriteState.h; sourceTree = "<group>"; };
+		18EEE3EC1A42E12A00F06DF0 /* CutCoverageAttemptState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CutCoverageAttemptState.h; sourceTree = "<group>"; };
+		18EEE3ED1A42E58500F06DF0 /* CurrentKeyProcessState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentKeyProcessState.h; sourceTree = "<group>"; };
+		18EEE3F41A430ABB00F06DF0 /* BoltOnClientConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnClientConnection.h; sourceTree = "<group>"; };
+		18EEE3F51A430AC600F06DF0 /* BoltOnClientConnectionFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnClientConnectionFactory.h; sourceTree = "<group>"; };
+		18EEE3F71A430D8F00F06DF0 /* BoltOnWire.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnWire.h; sourceTree = "<group>"; };
+		18EEE3F81A430E0800F06DF0 /* BoltOnServerToClientPutResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnServerToClientPutResponse.h; sourceTree = "<group>"; };
+		18EEE3F91A430E0800F06DF0 /* BoltOnServerToClientGetResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnServerToClientGetResponse.h; sourceTree = "<group>"; };
+		18EEE3FA1A430E0800F06DF0 /* BoltOnClientToServerPutRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnClientToServerPutRequest.h; sourceTree = "<group>"; };
+		18EEE3FB1A430E0800F06DF0 /* BoltOnClientToServerGetRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnClientToServerGetRequest.h; sourceTree = "<group>"; };
+		18EEE3FC1A430ECA00F06DF0 /* BoltOnCombinedRunner.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoltOnCombinedRunner.cpp; sourceTree = "<group>"; };
+		18EEE3FF1A4392A700F06DF0 /* BoltOnECBackingStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnECBackingStorage.h; sourceTree = "<group>"; };
+		18EEE4001A43A59900F06DF0 /* StringValueParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringValueParser.h; sourceTree = "<group>"; };
+		18EEE4011A44128100F06DF0 /* BoltOnECTransportSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnECTransportSerializer.h; sourceTree = "<group>"; };
+		18EEE4021A44287E00F06DF0 /* BoltOnClientToPartitionConnectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnClientToPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		18EEE4031A44287E00F06DF0 /* BoltOnClientToPartitionConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnClientToPartitionConnection.h; sourceTree = "<group>"; };
+		18F0B51B19F4692E002AFF8D /* ECServerExchange.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECServerExchange.h; sourceTree = "<group>"; };
+		18F0B51E19F4E1ED002AFF8D /* ECServerStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECServerStorage.h; sourceTree = "<group>"; };
+		18F0B51F19F4F48F002AFF8D /* ECPartitionConnection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECPartitionConnection.h; sourceTree = "<group>"; };
+		18F0B52019F4F555002AFF8D /* ECPartitionConnectionFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECPartitionConnectionFactory.h; sourceTree = "<group>"; };
+		18F4B9B419EDC41600E43EDD /* SimRunner */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SimRunner; sourceTree = BUILT_PRODUCTS_DIR; };
+		18F4B9C019EDC43500E43EDD /* Components.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Components.h; sourceTree = "<group>"; };
+		18F4B9C119EDC43500E43EDD /* KeyValueStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyValueStorage.h; sourceTree = "<group>"; };
+		18F4B9C319EDC43500E43EDD /* SimulatedStorageComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulatedStorageComponent.h; sourceTree = "<group>"; };
+		18F4B9C619EDC43500E43EDD /* UniformDistribution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UniformDistribution.h; sourceTree = "<group>"; };
+		18F4B9C719EDC43500E43EDD /* KeyGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyGenerator.h; sourceTree = "<group>"; };
+		18F4B9C819EDC43500E43EDD /* Keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Keys.h; sourceTree = "<group>"; };
+		18F4B9C919EDC43500E43EDD /* KeyToPartitionMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyToPartitionMapper.h; sourceTree = "<group>"; };
+		18F4B9CA19EDC43500E43EDD /* KeyType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeyType.h; sourceTree = "<group>"; };
+		18F4B9D019EDC43500E43EDD /* EC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EC.h; sourceTree = "<group>"; };
+		18F4B9D119EDC43500E43EDD /* ECClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECClient.h; sourceTree = "<group>"; };
+		18F4B9D219EDC43500E43EDD /* ECItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECItem.h; sourceTree = "<group>"; };
+		18F4B9D319EDC43500E43EDD /* ECPartitionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECPartitionServer.h; sourceTree = "<group>"; };
+		18F4B9D419EDC43500E43EDD /* ECSimulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSimulation.h; sourceTree = "<group>"; };
+		18F4B9D619EDC43500E43EDD /* ECGetReply.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECGetReply.h; sourceTree = "<group>"; };
+		18F4B9D719EDC43500E43EDD /* ECMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECMessaging.h; sourceTree = "<group>"; };
+		18F4B9D919EDC43500E43EDD /* ECSimulatedExchange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSimulatedExchange.h; sourceTree = "<group>"; };
+		18F4B9DB19EDC43500E43EDD /* Protocols.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Protocols.h; sourceTree = "<group>"; };
+		18F4B9DE19EDC43500E43EDD /* SimulationClock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationClock.h; sourceTree = "<group>"; };
+		18F4B9E019EDC43500E43EDD /* SimulationEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationEvent.h; sourceTree = "<group>"; };
+		18F4B9E219EDC43500E43EDD /* SimulationEventComparator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationEventComparator.h; sourceTree = "<group>"; };
+		18F4B9E319EDC43500E43EDD /* SimulationEventSchedule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationEventSchedule.h; sourceTree = "<group>"; };
+		18F4B9E419EDC43500E43EDD /* SimulationEventTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationEventTag.h; sourceTree = "<group>"; };
+		18F4B9E519EDC43500E43EDD /* SimulationHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationHost.h; sourceTree = "<group>"; };
+		18F4B9E619EDC43500E43EDD /* SimulationInfrastructure.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationInfrastructure.h; sourceTree = "<group>"; };
+		18F4B9E719EDC43500E43EDD /* SimulationTime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimulationTime.h; sourceTree = "<group>"; };
+		18F4B9E919EDC43500E43EDD /* SimRunnerAssert.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SimRunnerAssert.cpp; sourceTree = "<group>"; };
+		18F4B9EA19EDC43500E43EDD /* SimRunnerAssert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimRunnerAssert.h; sourceTree = "<group>"; };
+		18F4B9EC19EDC43500E43EDD /* StandardErrorLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StandardErrorLogger.h; sourceTree = "<group>"; };
+		18F4B9ED19EDC43500E43EDD /* StringHashProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringHashProvider.h; sourceTree = "<group>"; };
+		18F4B9EE19EDC43500E43EDD /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		18F4B9F519EE517500E43EDD /* SimulatedNetworkLinkComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SimulatedNetworkLinkComponent.h; sourceTree = "<group>"; };
+		18F4BA0119EED6A200E43EDD /* PartitionReplicaBroadcaster.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PartitionReplicaBroadcaster.h; sourceTree = "<group>"; };
+		18F5889F1A054913003F8058 /* OrbeNetworkCompleteHandlerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNetworkCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		18F588A01A05493F003F8058 /* OrbeNetworkOperationStateRequestCompleteHandlerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNetworkOperationStateRequestCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		18F588A11A05499A003F8058 /* OrbeReplicateMessageBundleRequestCompleteHandlerProxy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeReplicateMessageBundleRequestCompleteHandlerProxy.h; sourceTree = "<group>"; };
+		18F588A21A0549D7003F8058 /* OrbePartitionServerToLinkMapping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbePartitionServerToLinkMapping.h; sourceTree = "<group>"; };
+		18F588A31A054A37003F8058 /* OrbeNetworkGetOperationState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNetworkGetOperationState.h; sourceTree = "<group>"; };
+		18F588A41A054A94003F8058 /* OrbeReplicateMessageBundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeReplicateMessageBundle.h; sourceTree = "<group>"; };
+		18F588A51A0563BD003F8058 /* OrbeNetworkPutOperationState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNetworkPutOperationState.h; sourceTree = "<group>"; };
+		18F588A61A056498003F8058 /* OrbeNeighbourPartitionDependencyCheckOperationState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNeighbourPartitionDependencyCheckOperationState.h; sourceTree = "<group>"; };
+		18F588A71A0586E4003F8058 /* OrbePendingVersionVectorQuery.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbePendingVersionVectorQuery.h; sourceTree = "<group>"; };
+		18F588A81A05AAF6003F8058 /* OrbeNeighbourPartitionDependencyResponseOperationState.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrbeNeighbourPartitionDependencyResponseOperationState.h; sourceTree = "<group>"; };
+		18F64C1A1A3F98590041303C /* BoltOnClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnClient.h; sourceTree = "<group>"; };
+		18F64C1B1A3F986E0041303C /* AsynchronousReadShimBackEnd.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsynchronousReadShimBackEnd.h; sourceTree = "<group>"; };
+		18F64C1C1A3F987B0041303C /* AsynchronousResolver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AsynchronousResolver.h; sourceTree = "<group>"; };
+		18F64C1D1A3F98900041303C /* BoltOnSimulation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnSimulation.h; sourceTree = "<group>"; };
+		18F64C1E1A3F989B0041303C /* CausalClock.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CausalClock.h; sourceTree = "<group>"; };
+		18F64C1F1A3F98A80041303C /* CausalRelationship.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CausalRelationship.h; sourceTree = "<group>"; };
+		18F64C201A3F98B40041303C /* KeyDependencies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyDependencies.h; sourceTree = "<group>"; };
+		18F64C221A3F98DC0041303C /* ShimDeployment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShimDeployment.h; sourceTree = "<group>"; };
+		18F64C231A3F98EC0041303C /* ValueWrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ValueWrapper.h; sourceTree = "<group>"; };
+		18F64C251A3F99080041303C /* BoltOnVersionApplier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOnVersionApplier.h; sourceTree = "<group>"; };
+		18F64C261A3F99230041303C /* BoltOnSimulationRunner.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = BoltOnSimulationRunner.cpp; sourceTree = "<group>"; };
+		18F64C271A3F99FF0041303C /* BoltOn.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BoltOn.h; sourceTree = "<group>"; };
+		18F7B9FB19EFA100005A7FCC /* ECSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECSerializer.h; sourceTree = "<group>"; };
+		18F7BA0619F04B17005A7FCC /* ECPutReply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECPutReply.h; sourceTree = "<group>"; };
+		18F7BA0719F06CCA005A7FCC /* ECReplicateMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECReplicateMessage.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		18F4B9B119EDC41600E43EDD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1810EE261A253F53005676BC /* metrics */ = {
+			isa = PBXGroup;
+			children = (
+				1810EE391A26A785005676BC /* connection */,
+				1810EE371A26A785005676BC /* delay */,
+				1810EE351A26A785005676BC /* metadata */,
+				1810EE331A25426E005676BC /* MetricsStatsWriter.h */,
+			);
+			path = metrics;
+			sourceTree = "<group>";
+		};
+		1810EE351A26A785005676BC /* metadata */ = {
+			isa = PBXGroup;
+			children = (
+				1810EE361A26A785005676BC /* MetaDataStats.h */,
+			);
+			path = metadata;
+			sourceTree = "<group>";
+		};
+		1810EE371A26A785005676BC /* delay */ = {
+			isa = PBXGroup;
+			children = (
+				1810EE381A26A785005676BC /* DelayStats.h */,
+				182AC3191A64906F003D5359 /* DelayStatsOperation.h */,
+				182AC31A1A64907F003D5359 /* SerializedDelayStats.h */,
+			);
+			path = delay;
+			sourceTree = "<group>";
+		};
+		1810EE391A26A785005676BC /* connection */ = {
+			isa = PBXGroup;
+			children = (
+				1810EE3A1A26A785005676BC /* ConnectionStats.h */,
+				1810EE3B1A26A785005676BC /* ConnectionStatsClientOperation.h */,
+				1810EE3C1A26A785005676BC /* SerializedConnectionStats.h */,
+			);
+			path = connection;
+			sourceTree = "<group>";
+		};
+		182AC2AB1A48509E003D5359 /* standard_config */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2AC1A48509E003D5359 /* client */,
+				182AC2AF1A48509E003D5359 /* server */,
+				182AC2B21A4850ED003D5359 /* ServerNetworkTopologyModel.h */,
+			);
+			path = standard_config;
+			sourceTree = "<group>";
+		};
+		182AC2AC1A48509E003D5359 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2AD1A48509E003D5359 /* ClientConfig.h */,
+				182AC2AE1A48509E003D5359 /* ClientConfigParser.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		182AC2AF1A48509E003D5359 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2B01A48509E003D5359 /* ServerConfig.h */,
+				182AC2B11A48509E003D5359 /* ServerConfigParser.h */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		182AC2B31A56F753003D5359 /* orbe_delayed_install */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2B51A56F753003D5359 /* deployment */,
+				182AC2DB1A56F753003D5359 /* messaging */,
+				182AC3051A62DC55003D5359 /* simulator */,
+				182AC2E01A56F753003D5359 /* OrbeDelayedInstall.h */,
+				182AC2E11A56F753003D5359 /* OrbeDelayedInstallClient.h */,
+				182AC2FA1A58A3D8003D5359 /* OrbeDelayedInstallClientUpdateSpace.h */,
+				182AC2E21A56F753003D5359 /* OrbeDelayedInstallInFlightReplication.h */,
+				182AC2E31A56F753003D5359 /* OrbeDelayedInstallItem.h */,
+				182AC2E41A56F753003D5359 /* OrbeDelayedInstallItemData.h */,
+				182AC2E51A56F753003D5359 /* OrbeDelayedInstallPartitionServer.h */,
+				182AC2E61A56F753003D5359 /* OrbeDelayedInstallPartitionServerGetBeforePutContext.h */,
+				182AC2E71A56F753003D5359 /* OrbeDelayedInstallPartitionServerGetBeforePutHandler.h */,
+				182AC2E81A56F753003D5359 /* OrbeDelayedInstallPartitionServerReplicationHandler.h */,
+				182AC2E91A56F753003D5359 /* OrbeDelayedInstallPendingTimestampQuery.h */,
+				182AC2FB1A59BB6D003D5359 /* OrbeDelayedInstallReplicaUpdateSpace.h */,
+				182AC2EA1A56F753003D5359 /* OrbeDelayedInstallSerializer.h */,
+			);
+			path = orbe_delayed_install;
+			sourceTree = "<group>";
+		};
+		182AC2B51A56F753003D5359 /* deployment */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2B61A56F753003D5359 /* client */,
+				182AC2B91A56F753003D5359 /* interactive */,
+				182AC2BD1A56F753003D5359 /* server */,
+				182AC2CA1A56F753003D5359 /* wire */,
+				182AC2BC1A56F753003D5359 /* OrbeDelayedInstallCombinedRunner.cpp */,
+			);
+			path = deployment;
+			sourceTree = "<group>";
+		};
+		182AC2B61A56F753003D5359 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2B71A56F753003D5359 /* OrbeDelayedInstallClientToPartitionConnection.h */,
+				182AC2B81A56F753003D5359 /* OrbeDelayedInstallClientToPartitionConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		182AC2B91A56F753003D5359 /* interactive */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2BA1A56F753003D5359 /* client.py */,
+				182AC2BB1A56F753003D5359 /* connect.sh */,
+				182AC3031A61EAD2003D5359 /* OrbeDelayedInstallManualClientHeartbeat.h */,
+				182AC3041A61EB2B003D5359 /* OrbeDelayedInstallManualClientStatus.h */,
+			);
+			path = interactive;
+			sourceTree = "<group>";
+		};
+		182AC2BD1A56F753003D5359 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2BE1A56F753003D5359 /* client */,
+				182AC2C11A56F753003D5359 /* devices */,
+				182AC2C41A56F753003D5359 /* neighbours */,
+				182AC2C71A56F753003D5359 /* replicas */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		182AC2BE1A56F753003D5359 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2BF1A56F753003D5359 /* OrbeDelayedInstallClientConnection.h */,
+				182AC2C01A56F753003D5359 /* OrbeDelayedInstallClientConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		182AC2C11A56F753003D5359 /* devices */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2C21A56F753003D5359 /* OrbeDelayedInstallServerExchange.h */,
+				182AC2C31A56F753003D5359 /* OrbeDelayedInstallServerStorage.h */,
+			);
+			path = devices;
+			sourceTree = "<group>";
+		};
+		182AC2C41A56F753003D5359 /* neighbours */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2C51A56F753003D5359 /* OrbeDelayedInstallPartitionConnection.h */,
+				182AC2C61A56F753003D5359 /* OrbeDelayedInstallPartitionConnectionFactory.h */,
+			);
+			path = neighbours;
+			sourceTree = "<group>";
+		};
+		182AC2C71A56F753003D5359 /* replicas */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2C81A56F753003D5359 /* OrbeDelayedInstallReplicaConnection.h */,
+				182AC2C91A56F753003D5359 /* OrbeDelayedInstallReplicaConnectionFactory.h */,
+			);
+			path = replicas;
+			sourceTree = "<group>";
+		};
+		182AC2CA1A56F753003D5359 /* wire */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2CB1A56F753003D5359 /* OrbeDelayedInstallClientToServerGetRequest.h */,
+				182AC2CC1A56F753003D5359 /* OrbeDelayedInstallClientToServerPutRequest.h */,
+				182AC2CE1A56F753003D5359 /* OrbeDelayedInstallPartitionIdentityExchange.h */,
+				182AC2CF1A56F753003D5359 /* OrbeDelayedInstallReplicaIdentityExchange.h */,
+				182AC3011A60CD95003D5359 /* OrbeDelayedInstallReplicaHeartbeat.h */,
+				182AC2D01A56F753003D5359 /* OrbeDelayedInstallReplicate.h */,
+				182AC2D11A56F753003D5359 /* OrbeDelayedInstallServerToClientGetResponse.h */,
+				182AC2D21A56F753003D5359 /* OrbeDelayedInstallServerToClientPutResponse.h */,
+				182AC2D31A56F753003D5359 /* OrbeDelayedInstallServerToServerGetRequest.h */,
+				182AC2D41A56F753003D5359 /* OrbeDelayedInstallServerToServerGetResponse.h */,
+				182AC2D51A56F753003D5359 /* OrbeDelayedInstallServerToServerPutRequest.h */,
+				182AC2D61A56F753003D5359 /* OrbeDelayedInstallServerToServerPutResponse.h */,
+				182AC2D71A56F753003D5359 /* OrbeDelayedInstallDependencyTimestampCheckRequest.h */,
+				182AC2D81A56F753003D5359 /* OrbeDelayedInstallDependencyTimestampCheckResponse.h */,
+				182AC2D91A56F753003D5359 /* OrbeDelayedInstallVersionVectorParser.h */,
+				182AC2DA1A56F753003D5359 /* OrbeDelayedInstallWire.h */,
+			);
+			path = wire;
+			sourceTree = "<group>";
+		};
+		182AC2DB1A56F753003D5359 /* messaging */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2DC1A56F753003D5359 /* OrbeDelayedInstallGetReply.h */,
+				182AC2DD1A56F753003D5359 /* OrbeDelayedInstallMessaging.h */,
+				182AC2DE1A56F753003D5359 /* OrbeDelayedInstallPutReply.h */,
+				182AC2DF1A56F753003D5359 /* OrbeDelayedInstallReplicateMessage.h */,
+			);
+			path = messaging;
+			sourceTree = "<group>";
+		};
+		182AC3051A62DC55003D5359 /* simulator */ = {
+			isa = PBXGroup;
+			children = (
+				182AC3061A62DC55003D5359 /* OrbeDelayedInstallSimulation.h */,
+				182AC3071A62DC55003D5359 /* OrbeDelayedInstallSimulatorRunner.cpp */,
+				182AC3081A62DC55003D5359 /* simulated_components */,
+			);
+			path = simulator;
+			sourceTree = "<group>";
+		};
+		182AC3081A62DC55003D5359 /* simulated_components */ = {
+			isa = PBXGroup;
+			children = (
+				182AC3091A62DC55003D5359 /* OrbeDelayedInstallHeartbeatMessageBundle.h */,
+				182AC30A1A62DC55003D5359 /* OrbeDelayedInstallHeartbeatMessageBundleRequestCompleteHandlerProxy.h */,
+				182AC30B1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionDependencyCheckOperationState.h */,
+				182AC30C1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionDependencyResponseOperationState.h */,
+				182AC30D1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionGlobalDependencyCheckOperationState.h */,
+				182AC30E1A62DC55003D5359 /* OrbeDelayedInstallNeighbourPartitionGlobalDependencyResponseOperationState.h */,
+				182AC30F1A62DC55003D5359 /* OrbeDelayedInstallNetworkCompleteHandlerProxy.h */,
+				182AC3101A62DC55003D5359 /* OrbeDelayedInstallNetworkGetOperationState.h */,
+				182AC3111A62DC55003D5359 /* OrbeDelayedInstallNetworkOperationStateRequestCompleteHandlerProxy.h */,
+				182AC3121A62DC55003D5359 /* OrbeDelayedInstallNetworkPutOperationState.h */,
+				182AC3131A62DC55003D5359 /* OrbeDelayedInstallPartitionServerToLinkMapping.h */,
+				182AC3141A62DC55003D5359 /* OrbeDelayedInstallReplicateMessageBundle.h */,
+				182AC3151A62DC55003D5359 /* OrbeDelayedInstallReplicateMessageBundleRequestCompleteHandlerProxy.h */,
+				182AC3161A62DC55003D5359 /* OrbeDelayedInstallSimulatedExchange.h */,
+			);
+			path = simulated_components;
+			sourceTree = "<group>";
+		};
+		186320B419FC4E1E0015D47C /* wire */ = {
+			isa = PBXGroup;
+			children = (
+				186320B519FC4E1E0015D47C /* ECClientToServerGetRequest.h */,
+				186320B619FC4E1E0015D47C /* ECClientToServerPutRequest.h */,
+				186320B719FC4E1E0015D47C /* ECPartitionIdentityExchange.h */,
+				186320B819FC4E1E0015D47C /* ECReplicaIdentityExchange.h */,
+				186320B919FC4E1E0015D47C /* ECReplicate.h */,
+				186320BA19FC4E1E0015D47C /* ECServerToClientGetResponse.h */,
+				186320BB19FC4E1E0015D47C /* ECServerToClientPutResponse.h */,
+				186320BC19FC4E1E0015D47C /* ECServerToServerGetRequest.h */,
+				186320BD19FC4E1E0015D47C /* ECServerToServerGetResponse.h */,
+				186320BE19FC4E1E0015D47C /* ECServerToServerPutRequest.h */,
+				186320BF19FC4E1E0015D47C /* ECServerToServerPutResponse.h */,
+				186320C019FC4E1E0015D47C /* ECWire.h */,
+			);
+			path = wire;
+			sourceTree = "<group>";
+		};
+		186320CB19FE33AA0015D47C /* deployment */ = {
+			isa = PBXGroup;
+			children = (
+				186320CC19FE33AA0015D47C /* client */,
+				186320D419FE33AA0015D47C /* interactive */,
+				186320D719FE33AA0015D47C /* server */,
+				186320E819FE33AA0015D47C /* wire */,
+				186320D319FE33AA0015D47C /* OrbeCombinedRunner.cpp */,
+			);
+			path = deployment;
+			sourceTree = "<group>";
+		};
+		186320CC19FE33AA0015D47C /* client */ = {
+			isa = PBXGroup;
+			children = (
+				186320D119FE33AA0015D47C /* OrbeClientToPartitionConnection.h */,
+				186320D219FE33AA0015D47C /* OrbeClientToPartitionConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		186320D419FE33AA0015D47C /* interactive */ = {
+			isa = PBXGroup;
+			children = (
+				186320D519FE33AA0015D47C /* client.py */,
+				186320D619FE33AA0015D47C /* connect.sh */,
+				182AC3251A65D487003D5359 /* OrbeManualClientStatus.h */,
+			);
+			path = interactive;
+			sourceTree = "<group>";
+		};
+		186320D719FE33AA0015D47C /* server */ = {
+			isa = PBXGroup;
+			children = (
+				186320D819FE33AA0015D47C /* client */,
+				186320DE19FE33AA0015D47C /* devices */,
+				186320E219FE33AA0015D47C /* neighbours */,
+				186320E519FE33AA0015D47C /* replicas */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		186320D819FE33AA0015D47C /* client */ = {
+			isa = PBXGroup;
+			children = (
+				186320D919FE33AA0015D47C /* OrbeClientConnection.h */,
+				186320DA19FE33AA0015D47C /* OrbeClientConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		186320DE19FE33AA0015D47C /* devices */ = {
+			isa = PBXGroup;
+			children = (
+				186320DF19FE33AA0015D47C /* OrbeServerExchange.h */,
+				186320E019FE33AA0015D47C /* OrbeServerStorage.h */,
+			);
+			path = devices;
+			sourceTree = "<group>";
+		};
+		186320E219FE33AA0015D47C /* neighbours */ = {
+			isa = PBXGroup;
+			children = (
+				186320E319FE33AA0015D47C /* OrbePartitionConnection.h */,
+				186320E419FE33AA0015D47C /* OrbePartitionConnectionFactory.h */,
+			);
+			path = neighbours;
+			sourceTree = "<group>";
+		};
+		186320E519FE33AA0015D47C /* replicas */ = {
+			isa = PBXGroup;
+			children = (
+				186320E619FE33AA0015D47C /* OrbeReplicaConnection.h */,
+				186320E719FE33AA0015D47C /* OrbeReplicaConnectionFactory.h */,
+			);
+			path = replicas;
+			sourceTree = "<group>";
+		};
+		186320E819FE33AA0015D47C /* wire */ = {
+			isa = PBXGroup;
+			children = (
+				186320E919FE33AA0015D47C /* OrbeClientToServerGetRequest.h */,
+				186320EA19FE33AA0015D47C /* OrbeClientToServerPutRequest.h */,
+				186320EB19FE33AA0015D47C /* OrbePartitionIdentityExchange.h */,
+				186320EC19FE33AA0015D47C /* OrbeReplicaIdentityExchange.h */,
+				186320ED19FE33AA0015D47C /* OrbeReplicate.h */,
+				186320EE19FE33AA0015D47C /* OrbeServerToClientGetResponse.h */,
+				186320EF19FE33AA0015D47C /* OrbeServerToClientPutResponse.h */,
+				186320F019FE33AA0015D47C /* OrbeServerToServerGetRequest.h */,
+				186320F119FE33AA0015D47C /* OrbeServerToServerGetResponse.h */,
+				186320F219FE33AA0015D47C /* OrbeServerToServerPutRequest.h */,
+				186320F319FE33AA0015D47C /* OrbeServerToServerPutResponse.h */,
+				180169DA1A0DBB75003C7EA1 /* OrbeVersionVectorCheckRequest.h */,
+				180169DB1A0DBB88003C7EA1 /* OrbeVersionVectorCheckResponse.h */,
+				186320F419FE33AA0015D47C /* OrbeWire.h */,
+				180169D91A0D8462003C7EA1 /* OrbeDependencyMatrixParser.h */,
+				182AC3021A60CE1F003D5359 /* OrbeVersionVectorParser.h */,
+			);
+			path = wire;
+			sourceTree = "<group>";
+		};
+		186320FC19FE33AA0015D47C /* messaging */ = {
+			isa = PBXGroup;
+			children = (
+				186320FD19FE33AA0015D47C /* OrbeGetReply.h */,
+				186320FE19FE33AA0015D47C /* OrbeMessaging.h */,
+				186320FF19FE33AA0015D47C /* OrbePutReply.h */,
+				1863210019FE33AA0015D47C /* OrbeReplicateMessage.h */,
+			);
+			path = messaging;
+			sourceTree = "<group>";
+		};
+		1863210119FE33AA0015D47C /* simulated_components */ = {
+			isa = PBXGroup;
+			children = (
+				1863210219FE33AA0015D47C /* OrbeSimulatedExchange.h */,
+				18F5889F1A054913003F8058 /* OrbeNetworkCompleteHandlerProxy.h */,
+				18F588A01A05493F003F8058 /* OrbeNetworkOperationStateRequestCompleteHandlerProxy.h */,
+				18F588A11A05499A003F8058 /* OrbeReplicateMessageBundleRequestCompleteHandlerProxy.h */,
+				18F588A21A0549D7003F8058 /* OrbePartitionServerToLinkMapping.h */,
+				18F588A31A054A37003F8058 /* OrbeNetworkGetOperationState.h */,
+				18F588A51A0563BD003F8058 /* OrbeNetworkPutOperationState.h */,
+				18F588A61A056498003F8058 /* OrbeNeighbourPartitionDependencyCheckOperationState.h */,
+				18F588A81A05AAF6003F8058 /* OrbeNeighbourPartitionDependencyResponseOperationState.h */,
+				18F588A41A054A94003F8058 /* OrbeReplicateMessageBundle.h */,
+			);
+			path = simulated_components;
+			sourceTree = "<group>";
+		};
+		18EEE3E31A41F5BE00F06DF0 /* simulated_components */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3E41A41F5BE00F06DF0 /* BoltOnSimulatedBackingStorage.h */,
+			);
+			path = simulated_components;
+			sourceTree = "<group>";
+		};
+		18EEE3E91A42D1BE00F06DF0 /* version_applier_states */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3EA1A42D1DB00F06DF0 /* ApplyAllWritesState.h */,
+				18EEE3EB1A42D87E00F06DF0 /* ApplySingleWriteState.h */,
+				18EEE3EC1A42E12A00F06DF0 /* CutCoverageAttemptState.h */,
+				18EEE3ED1A42E58500F06DF0 /* CurrentKeyProcessState.h */,
+			);
+			path = version_applier_states;
+			sourceTree = "<group>";
+		};
+		18EEE3EE1A4309C400F06DF0 /* deployment */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3F01A430A6E00F06DF0 /* client */,
+				18EEE3EF1A430A6E00F06DF0 /* server */,
+				18EEE3F61A430D6600F06DF0 /* wire */,
+				18EEE3FC1A430ECA00F06DF0 /* BoltOnCombinedRunner.cpp */,
+			);
+			path = deployment;
+			sourceTree = "<group>";
+		};
+		18EEE3EF1A430A6E00F06DF0 /* server */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3F31A430A9B00F06DF0 /* client */,
+				18EEE3FE1A4392A700F06DF0 /* devices */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		18EEE3F01A430A6E00F06DF0 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE4021A44287E00F06DF0 /* BoltOnClientToPartitionConnectionFactory.h */,
+				18EEE4031A44287E00F06DF0 /* BoltOnClientToPartitionConnection.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		18EEE3F31A430A9B00F06DF0 /* client */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3F41A430ABB00F06DF0 /* BoltOnClientConnection.h */,
+				18EEE3F51A430AC600F06DF0 /* BoltOnClientConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		18EEE3F61A430D6600F06DF0 /* wire */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3F81A430E0800F06DF0 /* BoltOnServerToClientPutResponse.h */,
+				18EEE3F91A430E0800F06DF0 /* BoltOnServerToClientGetResponse.h */,
+				18EEE3FA1A430E0800F06DF0 /* BoltOnClientToServerPutRequest.h */,
+				18EEE3FB1A430E0800F06DF0 /* BoltOnClientToServerGetRequest.h */,
+				18EEE3F71A430D8F00F06DF0 /* BoltOnWire.h */,
+			);
+			path = wire;
+			sourceTree = "<group>";
+		};
+		18EEE3FE1A4392A700F06DF0 /* devices */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3FF1A4392A700F06DF0 /* BoltOnECBackingStorage.h */,
+				18EEE4011A44128100F06DF0 /* BoltOnECTransportSerializer.h */,
+			);
+			path = devices;
+			sourceTree = "<group>";
+		};
+		18F0B51419F467EF002AFF8D /* deployment */ = {
+			isa = PBXGroup;
+			children = (
+				18F0B51519F4686F002AFF8D /* client */,
+				18F0B51619F4686F002AFF8D /* server */,
+				186320B419FC4E1E0015D47C /* wire */,
+				186320C819FC70580015D47C /* ECCombinedRunner.cpp */,
+			);
+			path = deployment;
+			sourceTree = "<group>";
+		};
+		18F0B51519F4686F002AFF8D /* client */ = {
+			isa = PBXGroup;
+			children = (
+				186320C219FC55A10015D47C /* ECClientToPartitionConnectionFactory.h */,
+				186320C119FC55A10015D47C /* ECClientToPartitionConnection.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		18F0B51619F4686F002AFF8D /* server */ = {
+			isa = PBXGroup;
+			children = (
+				18F0B51719F4691B002AFF8D /* client */,
+				18F0B51819F4691B002AFF8D /* devices */,
+				18F0B51919F4691B002AFF8D /* neighbours */,
+				18F0B51A19F4691B002AFF8D /* replicas */,
+			);
+			path = server;
+			sourceTree = "<group>";
+		};
+		18F0B51719F4691B002AFF8D /* client */ = {
+			isa = PBXGroup;
+			children = (
+				183961EB19FAF44B007DAE23 /* ECClientConnection.h */,
+				183961EC19FAF44B007DAE23 /* ECClientConnectionFactory.h */,
+			);
+			path = client;
+			sourceTree = "<group>";
+		};
+		18F0B51819F4691B002AFF8D /* devices */ = {
+			isa = PBXGroup;
+			children = (
+				18F0B51B19F4692E002AFF8D /* ECServerExchange.h */,
+				18F0B51E19F4E1ED002AFF8D /* ECServerStorage.h */,
+			);
+			path = devices;
+			sourceTree = "<group>";
+		};
+		18F0B51919F4691B002AFF8D /* neighbours */ = {
+			isa = PBXGroup;
+			children = (
+				18F0B51F19F4F48F002AFF8D /* ECPartitionConnection.h */,
+				18F0B52019F4F555002AFF8D /* ECPartitionConnectionFactory.h */,
+			);
+			path = neighbours;
+			sourceTree = "<group>";
+		};
+		18F0B51A19F4691B002AFF8D /* replicas */ = {
+			isa = PBXGroup;
+			children = (
+				183961ED19FAF454007DAE23 /* ECReplicaConnection.h */,
+				183961EE19FAF454007DAE23 /* ECReplicaConnectionFactory.h */,
+			);
+			path = replicas;
+			sourceTree = "<group>";
+		};
+		18F4B9AB19EDC41600E43EDD = {
+			isa = PBXGroup;
+			children = (
+				18F4B9BE19EDC43500E43EDD /* src */,
+				18F4B9B519EDC41600E43EDD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		18F4B9B519EDC41600E43EDD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9B419EDC41600E43EDD /* SimRunner */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		18F4B9BE19EDC43500E43EDD /* src */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9BF19EDC43500E43EDD /* components */,
+				18F4B9C419EDC43500E43EDD /* keys */,
+				1810EE261A253F53005676BC /* metrics */,
+				18F4B9CE19EDC43500E43EDD /* protocols */,
+				18F4B9DC19EDC43500E43EDD /* simulation_infrastructure */,
+				18F4B9E819EDC43500E43EDD /* utilities */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
+		18F4B9BF19EDC43500E43EDD /* components */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9C019EDC43500E43EDD /* Components.h */,
+				18F4B9C119EDC43500E43EDD /* KeyValueStorage.h */,
+				18F4B9C319EDC43500E43EDD /* SimulatedStorageComponent.h */,
+				18F4B9F519EE517500E43EDD /* SimulatedNetworkLinkComponent.h */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
+		18F4B9C419EDC43500E43EDD /* keys */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9C519EDC43500E43EDD /* distributions */,
+				18F4B9C719EDC43500E43EDD /* KeyGenerator.h */,
+				18F4B9C819EDC43500E43EDD /* Keys.h */,
+				18F4B9C919EDC43500E43EDD /* KeyToPartitionMapper.h */,
+				18F4B9CA19EDC43500E43EDD /* KeyType.h */,
+			);
+			path = keys;
+			sourceTree = "<group>";
+		};
+		18F4B9C519EDC43500E43EDD /* distributions */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9C619EDC43500E43EDD /* UniformDistribution.h */,
+			);
+			path = distributions;
+			sourceTree = "<group>";
+		};
+		18F4B9CE19EDC43500E43EDD /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				18F64C191A3F93DA0041303C /* bolt_on */,
+				18F4B9CF19EDC43500E43EDD /* ec */,
+				18F4B9DA19EDC43500E43EDD /* orbe */,
+				182AC2B31A56F753003D5359 /* orbe_delayed_install */,
+				18F4B9DB19EDC43500E43EDD /* Protocols.h */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		18F4B9CF19EDC43500E43EDD /* ec */ = {
+			isa = PBXGroup;
+			children = (
+				18F0B51419F467EF002AFF8D /* deployment */,
+				18F4B9D519EDC43500E43EDD /* messaging */,
+				18F4B9D819EDC43500E43EDD /* simulated_components */,
+				18F4B9D019EDC43500E43EDD /* EC.h */,
+				18F4B9D119EDC43500E43EDD /* ECClient.h */,
+				18F4B9D219EDC43500E43EDD /* ECItem.h */,
+				18F4B9D319EDC43500E43EDD /* ECPartitionServer.h */,
+				18F4B9D419EDC43500E43EDD /* ECSimulation.h */,
+				1863210619FE3A4E0015D47C /* ECSimulatorRunner.cpp */,
+				18F7B9FB19EFA100005A7FCC /* ECSerializer.h */,
+				18452D7419F4168000D0CCA5 /* ECItemData.h */,
+			);
+			path = ec;
+			sourceTree = "<group>";
+		};
+		18F4B9D519EDC43500E43EDD /* messaging */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9D619EDC43500E43EDD /* ECGetReply.h */,
+				18F4B9D719EDC43500E43EDD /* ECMessaging.h */,
+				18F7BA0619F04B17005A7FCC /* ECPutReply.h */,
+				18F7BA0719F06CCA005A7FCC /* ECReplicateMessage.h */,
+			);
+			path = messaging;
+			sourceTree = "<group>";
+		};
+		18F4B9D819EDC43500E43EDD /* simulated_components */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9D919EDC43500E43EDD /* ECSimulatedExchange.h */,
+			);
+			path = simulated_components;
+			sourceTree = "<group>";
+		};
+		18F4B9DA19EDC43500E43EDD /* orbe */ = {
+			isa = PBXGroup;
+			children = (
+				186320CB19FE33AA0015D47C /* deployment */,
+				186320FC19FE33AA0015D47C /* messaging */,
+				1863210119FE33AA0015D47C /* simulated_components */,
+				1863210A19FEF0C90015D47C /* DependencyMatrix.h */,
+				186320F519FE33AA0015D47C /* Orbe.h */,
+				186320F619FE33AA0015D47C /* OrbeClient.h */,
+				180719CC1A02C4250003E484 /* OrbeInFlightReplication.h */,
+				186320F719FE33AA0015D47C /* OrbeItem.h */,
+				186320F819FE33AA0015D47C /* OrbeItemData.h */,
+				186320F919FE33AA0015D47C /* OrbePartitionServer.h */,
+				180719B61A0177F20003E484 /* OrbePartitionServerGetBeforePutContext.h */,
+				180719B41A01746A0003E484 /* OrbePartitionServerGetBeforePutHandler.h */,
+				180719B51A0174E80003E484 /* OrbePartitionServerReplicationHandler.h */,
+				18F588A71A0586E4003F8058 /* OrbePendingVersionVectorQuery.h */,
+				186320FA19FE33AA0015D47C /* OrbeSerializer.h */,
+				186320FB19FE33AA0015D47C /* OrbeSimulation.h */,
+				1863210819FE3B1A0015D47C /* OrbeSimulatorRunner.cpp */,
+			);
+			path = orbe;
+			sourceTree = "<group>";
+		};
+		18F4B9DC19EDC43500E43EDD /* simulation_infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				18F4B9DE19EDC43500E43EDD /* SimulationClock.h */,
+				18F4B9E019EDC43500E43EDD /* SimulationEvent.h */,
+				18F4B9E219EDC43500E43EDD /* SimulationEventComparator.h */,
+				18F4B9E319EDC43500E43EDD /* SimulationEventSchedule.h */,
+				18F4B9E419EDC43500E43EDD /* SimulationEventTag.h */,
+				18F4B9E519EDC43500E43EDD /* SimulationHost.h */,
+				18F4B9E619EDC43500E43EDD /* SimulationInfrastructure.h */,
+				18F4B9E719EDC43500E43EDD /* SimulationTime.h */,
+			);
+			path = simulation_infrastructure;
+			sourceTree = "<group>";
+		};
+		18F4B9E819EDC43500E43EDD /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				182AC2AB1A48509E003D5359 /* standard_config */,
+				18F4B9E919EDC43500E43EDD /* SimRunnerAssert.cpp */,
+				18F4B9EA19EDC43500E43EDD /* SimRunnerAssert.h */,
+				186320CA19FD71070015D47C /* ClientRequestGenerator.h */,
+				189B245D19F8EEFA006DD887 /* ConnectionResolver.h */,
+				18F4BA0119EED6A200E43EDD /* PartitionReplicaBroadcaster.h */,
+				18F4B9EC19EDC43500E43EDD /* StandardErrorLogger.h */,
+				18F4B9ED19EDC43500E43EDD /* StringHashProvider.h */,
+				18F4B9EE19EDC43500E43EDD /* Utilities.h */,
+				18452D6B19F0F60E00D0CCA5 /* Timing.h */,
+				189B245319F5ABF9006DD887 /* Host.h */,
+				189B245419F5CD8F006DD887 /* ConnectionListener.h */,
+				189B245919F6DF15006DD887 /* Connection.h */,
+				189B245519F635D3006DD887 /* Wire.h */,
+				189B245B19F85724006DD887 /* Wire.cpp */,
+				1863210B19FEF1980015D47C /* VersionVector.h */,
+				180169DD1A10A7C7003C7EA1 /* VersionVectorString.h */,
+				18EEE4001A43A59900F06DF0 /* StringValueParser.h */,
+				182AC2A61A47926B003D5359 /* Pool.h */,
+				182AC2A71A47ABB0003D5359 /* Endian.h */,
+			);
+			path = utilities;
+			sourceTree = "<group>";
+		};
+		18F64C191A3F93DA0041303C /* bolt_on */ = {
+			isa = PBXGroup;
+			children = (
+				18EEE3EE1A4309C400F06DF0 /* deployment */,
+				18EEE3E91A42D1BE00F06DF0 /* version_applier_states */,
+				18EEE3E31A41F5BE00F06DF0 /* simulated_components */,
+				18F64C1B1A3F986E0041303C /* AsynchronousReadShimBackEnd.h */,
+				18F64C1C1A3F987B0041303C /* AsynchronousResolver.h */,
+				18F64C271A3F99FF0041303C /* BoltOn.h */,
+				18F64C1A1A3F98590041303C /* BoltOnClient.h */,
+				18EEE3E61A41FE7000F06DF0 /* BoltOnSerializer.h */,
+				18F64C1D1A3F98900041303C /* BoltOnSimulation.h */,
+				18F64C261A3F99230041303C /* BoltOnSimulationRunner.cpp */,
+				18F64C251A3F99080041303C /* BoltOnVersionApplier.h */,
+				18F64C1E1A3F989B0041303C /* CausalClock.h */,
+				18F64C1F1A3F98A80041303C /* CausalRelationship.h */,
+				18F64C201A3F98B40041303C /* KeyDependencies.h */,
+				18F64C221A3F98DC0041303C /* ShimDeployment.h */,
+				18F64C231A3F98EC0041303C /* ValueWrapper.h */,
+				18EEE3E81A42574800F06DF0 /* ValueWrapperData.h */,
+				182AC2A51A475F12003D5359 /* ValueWrapperFactory.h */,
+			);
+			path = bolt_on;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		18F4B9B319EDC41600E43EDD /* SimRunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 18F4B9BB19EDC41600E43EDD /* Build configuration list for PBXNativeTarget "SimRunner" */;
+			buildPhases = (
+				18F4B9B019EDC41600E43EDD /* Sources */,
+				18F4B9B119EDC41600E43EDD /* Frameworks */,
+				18F4B9B219EDC41600E43EDD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SimRunner;
+			productName = SimRunner;
+			productReference = 18F4B9B419EDC41600E43EDD /* SimRunner */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18F4B9AC19EDC41600E43EDD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Scott;
+				TargetAttributes = {
+					18F4B9B319EDC41600E43EDD = {
+						CreatedOnToolsVersion = 6.0.1;
+					};
+				};
+			};
+			buildConfigurationList = 18F4B9AF19EDC41600E43EDD /* Build configuration list for PBXProject "SimRunner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 18F4B9AB19EDC41600E43EDD;
+			productRefGroup = 18F4B9B519EDC41600E43EDD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				18F4B9B319EDC41600E43EDD /* SimRunner */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		18F4B9B019EDC41600E43EDD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18EEE3E51A41F9DC00F06DF0 /* BoltOnSimulationRunner.cpp in Sources */,
+				18EEE3FD1A430ECA00F06DF0 /* BoltOnCombinedRunner.cpp in Sources */,
+				1863210919FE3B1A0015D47C /* OrbeSimulatorRunner.cpp in Sources */,
+				1863210419FE33AA0015D47C /* OrbeCombinedRunner.cpp in Sources */,
+				1863210719FE3A4E0015D47C /* ECSimulatorRunner.cpp in Sources */,
+				182AC3171A62DC55003D5359 /* OrbeDelayedInstallSimulatorRunner.cpp in Sources */,
+				186320C919FC70580015D47C /* ECCombinedRunner.cpp in Sources */,
+				18F4B9F319EDC43500E43EDD /* SimRunnerAssert.cpp in Sources */,
+				189B245C19F85724006DD887 /* Wire.cpp in Sources */,
+				182AC2F81A56F753003D5359 /* OrbeDelayedInstallCombinedRunner.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		18F4B9B919EDC41600E43EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		18F4B9BA19EDC41600E43EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LIBRARY_SEARCH_PATHS = "";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CPLUSPLUSFLAGS = "$(OTHER_CFLAGS)";
+				OTHER_LDFLAGS = "";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		18F4B9BC19EDC41600E43EDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					"../../lib/rapidjson/**",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DSIM_RUNNER_RUN_AS_",
+					"-DSIM_RUNNER_NUM_PARTITIONS=2",
+					"-DSIM_RUNNER_NUM_REPLICAS=2",
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_system",
+					"-lboost_chrono",
+					"-lboost_program_options",
+					"-lboost_filesystem",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		18F4B9BD19EDC41600E43EDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+					"../../lib/rapidjson/**",
+				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib;
+				OTHER_CFLAGS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DSIM_RUNNER_RUN_AS_",
+					"-DSIM_RUNNER_NUM_PARTITIONS=2",
+					"-DSIM_RUNNER_NUM_REPLICAS=2",
+				);
+				OTHER_LDFLAGS = (
+					"-lboost_system",
+					"-lboost_chrono",
+					"-lboost_program_options",
+					"-lboost_filesystem",
+				);
+				OTHER_LIBTOOLFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		18F4B9AF19EDC41600E43EDD /* Build configuration list for PBXProject "SimRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18F4B9B919EDC41600E43EDD /* Debug */,
+				18F4B9BA19EDC41600E43EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		18F4B9BB19EDC41600E43EDD /* Build configuration list for PBXNativeTarget "SimRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				18F4B9BC19EDC41600E43EDD /* Debug */,
+				18F4B9BD19EDC41600E43EDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18F4B9AC19EDC41600E43EDD /* Project object */;
+}

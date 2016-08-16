@@ -1,0 +1,12 @@
+1.  run ./build/authenticate_uni.sh
+2.  type password
+3.  run ./build/upload_to_uni.sh
+4.  run ./build/connect_to_uni.sh 
+5.  ssh into namenode
+6.  run python ./package/build/kill_uni_servers.py
+7.  run ./package/build/build_<protocol>_server.sh -p <num partitions> -r <num replicas>
+8.  run python ./package/build/experiment_runner.py <num partitions> <num replicas> <seconds> <protocol> <connections_per_client>
+	- 10 is a good connections per client
+9.  wait until complete
+10. from local, run ./build/pull_uni_logs.sh
+11. run python ./build/experiment/connection_stats_reader.py 

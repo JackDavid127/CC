@@ -1,0 +1,11 @@
+{
+	"partition_port":"12400",
+	"replica_port":"13500",
+	"client_port":"14600",
+	"local_test_run": true,
+
+	"replications": [
+		["127.0.0.1", "127.0.0.1"],
+		["127.0.0.1", "127.0.0.1"]
+	]
+}

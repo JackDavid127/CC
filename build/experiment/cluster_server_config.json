@@ -1,0 +1,8 @@
+{
+	"partition_port":"12400",
+	"replica_port":"13500",
+	"client_port":"14600",
+	"local_test_run": false,
+
+	"replications": [["bw1425n02.inf.ed.ac.uk","bw1425n03.inf.ed.ac.uk"],["bw1425n04.inf.ed.ac.uk","bw1425n05.inf.ed.ac.uk"]]
+}

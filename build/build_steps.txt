@@ -1,0 +1,57 @@
+# steps to get clang++ 3.5 on a DICE machine...
+
+# get gcc 4.8
+wget ftp://ftp.gnu.org/gnu/gcc/gcc-4.8.2/gcc-4.8.2.tar.bz2
+tar -xvjf gcc-4.8.2.tar.bz2
+cd gcc-4.8.2
+./contrib/download_prerequisites
+cd ..
+mkdir gcc-4.8.2-build
+cd gcc-4.8.2-build
+$PWD/../gcc-4.8.2/configure --prefix=$HOME/toolchains --enable-languages=c,c++
+make -j4
+make install 	<------ do this assuming make is done (run top on namenode)
+
+
+--- i just bailed here and used gcc :: clang instructions not tested follow ---
+
+# http://llvm.org/releases/download.html#3.5
+# http://clang.llvm.org/get_started.html
+# http://www.linuxfromscratch.org/blfs/view/svn/general/llvm.html
+# http://llvm.org/docs/GettingStarted.html#requirements
+
+# get clang 3.5
+wget http://llvm.org/releases/3.5.0/cfe-3.5.0.src.tar.xz
+
+# get llvm 3.5
+wget http://llvm.org/releases/3.5.0/llvm-3.5.0.src.tar.xz
+
+mkdir llvm
+
+tar -xf llvm-3.5.0.src.tar.xz -C llvm 
+
+# put clang in llvm tree
+tar -xf ../cfe-3.5.0.src.tar.xz -C tools 
+mv tools/cfe-3.5.0.src tools/clang &&
+
+# configure and make llvm
+CC=$HOME/toolchains/bin/gcc CXX=$HOME/toolchains/bin/g++ ./configure --prefix=/afs/inf.ed.ac.uk/user/s12/username/llvm/ --enable-libffi --enable-optimized --enable-shared --disable-assertions 
+make
+
+
+--- boost 1_56 ---
+
+wget http://sourceforge.net/projects/boost/files/boost/1.56.0/boost_1_56_0.tar.bz2/download
+mv download boost_1_56_0.tar.bz2
+tar -xvjf boost_1_56_0.tar.bz2
+mkdir boost_install
+cd boost_1_56_0
+./bootstrap.sh --with-toolset=gcc --prefix=$HOME/boost_install
+
+# then edit the 'project-config.jam' file
+# replace 'using gcc ;' with 'using gcc : 4.8.2 : /afs/inf.ed.ac.uk/user/s12/username/toolchains/bin/g++ ;'
+
+./b2 install 
+
+
+
