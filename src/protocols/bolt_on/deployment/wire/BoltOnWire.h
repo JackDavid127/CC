@@ -22,18 +22,20 @@ namespace SimRunner
                 {
                     typedef uint32_t BoltOnMessageHeaderType;
                     constexpr size_t BoltOnMessageHeaderBytes = sizeof(uint32_t);
-                    
+
                     static_assert(BoltOnMessageHeaderBytes == 4, "Expected a ECMessageHeaderType size of 4 bytes, is this platform weird?");
-                    
+
                     enum BoltOnWireMessages : Utilities::Byte
                     {
                         ClientToServerGetRequestMsg,
+                        ClientToServerGetsRequestMsg,
                         ClientToServerPutRequestMsg,
-                        
+
                         ServerToClientGetResponseMsg,
+                        ServerToClientGetsResponseMsg,
                         ServerToClientPutResponseMsg
                     };
-                    
+
                     constexpr size_t BoltOnMessagePreamble = /*ECMessageHeaderBytes +*/ sizeof(BoltOnWireMessages);
                 }
             }

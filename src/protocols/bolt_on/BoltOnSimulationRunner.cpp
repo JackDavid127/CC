@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Scott. All rights reserved.
 //
 
-#define RUN_AS_BOLT_ON_SIMULATOR
+//#define RUN_AS_BOLT_ON_SIMULATOR
 #ifdef RUN_AS_BOLT_ON_SIMULATOR
 
 #include <boost/function.hpp>

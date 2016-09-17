@@ -41,11 +41,11 @@ namespace SimRunner
                 typedef typename TProtocolTraits::TBoltOnSerializer TSerializer;
                 typedef typename TProtocolTraits::TTaskRunner TTaskRunner;
                 typedef typename TProtocolTraits::TBoltOnSerializedValueTypePtr TBoltOnSerializedValueTypePtr;
-                
+
                 typedef SimRunner::SimulationInfrastructure::SimulationEvent TSimEvent;
                 typedef TBackingStorage TStorageComponent;
                 typedef std::unique_ptr<TStorageComponent> TStoragePtr;
-                
+
             public:
                 BoltOnSimulation(size_t numberOfShimDeployments,
                                  size_t numberOfClientsPerDeployment,
@@ -70,7 +70,7 @@ namespace SimRunner
                 , m_backingStorageComponentPtr(new TStorageComponent(*new Components::KeyValueStorage<TStorageKey, TBoltOnSerializedValueTypePtr>()))
                 {
                     TShimId nextShimId(0);
-                    
+
                     for(size_t i = 0; i < numberOfShimDeployments; ++ i)
                     {
                         ++ nextShimId;
@@ -80,7 +80,7 @@ namespace SimRunner
                                                                                taskRunner,
                                                                                serializer,
                                                                                m_valueWrapperFactory));
-                        
+
                         m_shimDeployments.push_back(new TShimDeployment(nextShimId,
                                                                         *pResolver,
                                                                         *(new TShimBackEnd(nextShimId,
@@ -88,7 +88,7 @@ namespace SimRunner
                                                                                            *pResolver,
                                                                                            serializer,
                                                                                            m_valueWrapperFactory))));
-                        
+
                         ClientIdType nextClientId(0);
                         for(size_t j = 0; j < numberOfClientsPerDeployment; ++ j)
                         {
@@ -100,15 +100,15 @@ namespace SimRunner
                                                             false));
                         }
                     }
-                    
+
                     ScheduleAsyncResolverDrain(100, -1);
                 }
-                
+
                 void PerformOperation()
                 {
                     //static int m_operationCount = 0;
                     //m_logger.Log("PerformOperation %d\n", ++ m_operationCount);
-                    
+
                     for(auto client : m_clients)
                     {
                         if(!client->IsBusy())
@@ -117,87 +117,103 @@ namespace SimRunner
                         }
                     }
                 }
-                
+
                 void End()
                 {
-                    
+
                 }
-                
+
                 void HandleGetCompleteItemFound(const TValueWrapperPtr getReply)
                 {
                     m_logger.Log("BoltOnSimulation::HandleGetCompleteItemFound: %d, %d\n",
                      getReply->Key(),
                      getReply->Value());
                 }
-                
+
                 void HandleGetCompleteItemNotFound()
                 {
                     //m_logger.Log("ECSimulation::HandleGetCompleteItemNotFound\n");
                 }
-                
+
                 void HandlePutComplete(const TValueWrapperPtr putReply)
                 {
                     m_logger.Log("BoltOnSimulation::HandlePutComplete: %d, %d\n",
                                  putReply->Key(),
                                  putReply->Value());
                 }
-                
-                
+
+
             private:
                 void GenerateEvent(TClient& client)
                 {
                     TStorageKey key(m_keyGenerator.NextKey());
-                    
+
                     if(OperationIsRead())
                     {
-                        client.IssueGet(key);
+                        if(OperationIsTrans()){
+                            std::vector<TStorageKey> keys;
+                            keys.push_back(key);
+                            for (int i=1;i<2;i++){
+                                TStorageKey key2(m_keyGenerator.NextKey());
+                                keys.push_back(key2);
+                            }
+                            client.IssueGets(keys);
+                        }
+                        else client.IssueGet(key);
                     }
                     else
                     {
-                        client.IssuePut(key, 0);
+                        client.IssuePut(key, m_eventCounter);
                     }
-                    
+
                     ++ m_eventCounter;
                 }
-                
+
                 void Update()
                 {
-                    
+
                 }
-                
+
                 bool OperationIsRead()
                 {
                     double random = m_distribution(m_randomEngine);
                     return random >= m_putToGetRatio;
                 }
-                
+
+                bool OperationIsTrans()
+                {
+                    //return false;
+                    double random = m_distribution(m_randomEngine);
+                    return random >= m_putToGetRatio;
+                }
+
                 void ScheduleAsyncResolverDrain(size_t millisecondsDelay,
                                                 size_t eventCounterLastHeartbeat)
                 {
                     bool noMoreEvents = eventCounterLastHeartbeat == m_eventCounter;
                     eventCounterLastHeartbeat = m_eventCounter;
-                    
+
                     for(auto it = m_shimDeployments.begin(); it != m_shimDeployments.end(); ++ it)
                     {
                         TShimDeployment& shimDeployment(**it);
                         shimDeployment.UpdateResolver();
                     }
-                    
+
                     if(!m_schedule.HasEvents() && noMoreEvents)
                     {
                         return;
                     }
-                    
+
                     boost::function<void ()> binding = boost::bind(&BoltOnSimulation::ScheduleAsyncResolverDrain,
                                                                    this,
                                                                    millisecondsDelay,
                                                                    eventCounterLastHeartbeat);
-                    
+
                     TSimEvent event = m_schedule.BuildSimulationEventTimeStampedNow(binding, "ScheduleAsyncResolverDrain");
                     m_schedule.InsertSimulationEvent(event, millisecondsDelay * 1000);
                 }
-                
-                
+
+
             private:
                 TKeyGenerator& m_keyGenerator;
                 TEventSchedule& m_schedule;
@@ -207,7 +223,7 @@ namespace SimRunner
                 TValueWrapperFactory& m_valueWrapperFactory;
                 double m_putToGetRatio;
                 bool m_fullCausality;
-                
+
                 std::uniform_real_distribution<double> m_distribution;
                 size_t m_eventCounter;
                 size_t m_shimToUpdateIndex;

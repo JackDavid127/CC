@@ -13,6 +13,7 @@
 #include <vector>
 #include "BoltOn.h"
 #include "Timing.h"
+#include <stdio.h>
 
 namespace SimRunner
 {
@@ -36,7 +37,7 @@ namespace SimRunner
                 typedef typename TProtocolTraits::TClientInputValueType TClientInputValueType;
                 typedef typename TProtocolTraits::TBoltOnSerializer TSerializer;
                 typedef typename TProtocolTraits::TBoltOnSerializedValueTypePtr TBoltOnSerializedValueTypePtr;
-                
+
             public:
                 AsynchronousReadShimBackEnd(TShimId& shimId,
                                             TLocalShimStorage& localShimStorage,
@@ -55,40 +56,41 @@ namespace SimRunner
                 , m_numGets(0)
                 , m_numPuts(0)
                 {
-                    
+
                 }
-                
+
                 TCounter RealNullReads()
                 {
                     return m_realNullReadsCount;
                 }
-                
+
                 TCounter FalseNullReads()
                 {
                     return m_falseNullReadsCount;
                 }
-                
+
                 TCounter Gets()
                 {
                     return m_numGets;
                 }
-                
+
                 TCounter Puts()
                 {
                     return m_numPuts;
                 }
-                
+
                 void Get(TBackingStorage& backingStorage,
                          const TStorageKey& key,
                          const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
                 {
                     //self.__num_gets.increment_and_get()
-                    
+
                     if(m_maxNumReadsECDS == 0)
                     {
                         m_localStoreResolver.AddKeyToCheck(key);
                         TValueWrapperPtr* pValueWrapper;
-                        
+                        //printf("Entering GET\n");
+
                         if(m_localShimStorage.TryGetValue(key, pValueWrapper))
                         {
                             getCompleteHandler(*pValueWrapper);
@@ -106,12 +108,70 @@ namespace SimRunner
                                                                                                           getCompleteHandler,
                                                                                                           key,
                                                                                                           _1);
-                        
-                        
+
+
                         backingStorage.Get(key, binding);
                     }
                 }
-                
+
+                void Gets(TBackingStorage& backingStorage,
+                         const std::vector<TStorageKey>& keys,
+                         const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
+                {
+                    Utilities::TTimestamp mst, med;
+                    for (auto it=keys.begin();it!=keys.end();it++){
+                        if(m_maxNumReadsECDS == 0)
+                        {
+                            m_localStoreResolver.AddKeyToCheck(*it);
+                            TValueWrapperPtr* pValueWrapper;
+                            Utilities::TTimestamp st, ed;
+                            //printf("Entering GET\n");
+
+                            if(m_localShimStorage.TryGetValue(*it, pValueWrapper, st, ed))
+                            {
+                                printf("trans: ");getCompleteHandler(*pValueWrapper);
+                                if(it == keys.begin()) mst=st, med=ed;
+                                else if(st>=med || ed<=mst){
+                                    printf("Invalid Interval\n");
+                                    if(m_localShimStorage.TryGetValue(*it, pValueWrapper, mst)){
+                                        printf("1trans: ");getCompleteHandler(*pValueWrapper);
+                                    }
+                                    else if(m_localShimStorage.TryGetValue(*it, pValueWrapper, med)){
+                                        printf("2trans: ");getCompleteHandler(*pValueWrapper);
+                                    }
+                                    else{
+                                        printf("Read Transaction Failed");
+                                        return;
+                                    }
+                                }
+                                else{
+                                    if(st>mst) mst=st;
+                                    if(ed<med) med=ed;
+                                }
+                            }
+                            else
+                            {
+                                //self.__real_null_reads_count.increment_and_get()
+                                getCompleteHandler(nullptr);
+                                printf("Read Transaction Failed\n");
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            boost::function<void (const TBoltOnSerializedValueTypePtr)> binding = boost::bind(&AsynchronousReadShimBackEnd::HandleGetComplete,
+                                                                                                              this,
+                                                                                                              getCompleteHandler,
+                                                                                                              *it,
+                                                                                                              _1);
+
+
+                            backingStorage.Get(*it, binding);
+                        }
+                    }
+                    printf("Read Transaction Succeeded\n");
+                }
+
                 TValueWrapperPtr Put(TBackingStorage& backingStorage,
                                      const TStorageKey& key,
                                      const TClientInputValueType& value,
@@ -120,7 +180,7 @@ namespace SimRunner
                     std::set<TValueWrapperPtr> dependencies;
                     return PutAfterDependencies(backingStorage, key, value, dependencies, putCompleteHandler);
                 }
-                
+
                 TValueWrapperPtr PutAfterDependency(TBackingStorage& backingStorage,
                                                     const TStorageKey& key,
                                                     const TClientInputValueType& value,
@@ -132,7 +192,7 @@ namespace SimRunner
                     SR_ASSERT(result.second);
                     return PutAfterDependencies(backingStorage, key, value, dependencies, putCompleteHandler);
                 }
-                
+
                 TValueWrapperPtr PutAfterDependencies(TBackingStorage& backingStorage,
                                                       const TStorageKey& key,
                                                       const TClientInputValueType& value,
@@ -140,10 +200,10 @@ namespace SimRunner
                                                       const boost::function<void (const TValueWrapperPtr)>& putCompleteHandler)
                 {
                     //self.__num_puts.increment_and_get()
-                    
+
                     TKeyDependencies keyDependencies(dependencies);
                     TCausalClock aggregateClock = TCausalClock::CreateEmpty();
-                    
+
                     for(auto it = dependencies.begin(); it != dependencies.end(); ++ it)
                     {
                         const TValueWrapperPtr valueWrapper(*it);
@@ -152,30 +212,31 @@ namespace SimRunner
                             aggregateClock.MergeWithClock(valueWrapper->Clock());
                         }
                     }
-                    
+
                     aggregateClock.SetValueForShim(m_shimId, m_localSequenceNum.IncrementAndGet());
-                    
+
                     keyDependencies.PutDependency(key, aggregateClock);
-                    
+
                     TValueWrapperPtr result(m_valueWrapperFactory.CreateValueWrapper(key, value, keyDependencies, Utilities::Now()));
-                    
+
                     boost::function<void ()> binding = boost::bind(&AsynchronousReadShimBackEnd::HandlePutComplete,
                                                                    this,
                                                                    putCompleteHandler,
                                                                    result);
-                    
+
                     backingStorage.Put(key, result->ToData(), binding);
                     m_localShimStorage.AddValueForKey(key, result);
-                    
+
                     return result;
                 }
-                
+
             private:
-                
+
                 void HandleGetComplete(const boost::function<void (const TValueWrapperPtr)>& clientGetCompleteHandler,
                                        const TStorageKey& key,
                                        const TBoltOnSerializedValueTypePtr pSerializedResult)
                 {
+                    printf("%%Entering HandleGetComplete\n");
                     if(pSerializedResult != nullptr)
                     {
                         boost::function<void (const TValueWrapperPtr, bool)> binding = boost::bind(&AsynchronousReadShimBackEnd::HandleCoverageCheckCompleted,
@@ -183,14 +244,14 @@ namespace SimRunner
                                                                                                    clientGetCompleteHandler,
                                                                                                    _1,
                                                                                                    _2);
-                        
+
                         TValueWrapperPtr protocolItem = m_serializer.Deserialize(pSerializedResult);
                         m_localStoreResolver.CheckSingleKey(protocolItem, m_maxNumReadsECDS - 1, binding);
                     }
                     else
                     {
                         TValueWrapperPtr* pValueWrapper;
-                        
+
                         if(m_localShimStorage.TryGetValue(key, pValueWrapper))
                         {
                             //self.__stale_reads_count.increment_and_get()
@@ -203,13 +264,13 @@ namespace SimRunner
                         }
                     }
                 }
-                
+
                 void HandlePutComplete(const boost::function<void (const TValueWrapperPtr)>& clientPutCompleteHandler,
                                        const TValueWrapperPtr valueWrapper)
                 {
                     clientPutCompleteHandler(valueWrapper);
                 }
-                
+
                 void HandleCoverageCheckCompleted(const boost::function<void (const TValueWrapperPtr)>& clientGetCompleteHandler,
                                                   const TValueWrapperPtr coverageAttemptItem,
                                                   bool successfullyCoveredItem)
@@ -221,7 +282,7 @@ namespace SimRunner
                     else
                     {
                         TValueWrapperPtr* pFallback;
-                        
+
                         if(m_localShimStorage.TryGetValue(coverageAttemptItem->Key(), pFallback))
                         {
                             //self.__stale_reads_count.increment_and_get()
@@ -234,7 +295,7 @@ namespace SimRunner
                         }
                     }
                 }
-                
+
                 TShimId& m_shimId;
                 TLocalShimStorage& m_localShimStorage;
                 TLocalStoreResolver& m_localStoreResolver;

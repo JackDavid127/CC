@@ -273,6 +273,8 @@
 		18F7B9FB19EFA100005A7FCC /* ECSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECSerializer.h; sourceTree = "<group>"; };
 		18F7BA0619F04B17005A7FCC /* ECPutReply.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECPutReply.h; sourceTree = "<group>"; };
 		18F7BA0719F06CCA005A7FCC /* ECReplicateMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ECReplicateMessage.h; sourceTree = "<group>"; };
+		7C18210C1D73C9D0009E5622 /* BoltOnClientToServerGetsRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnClientToServerGetsRequest.h; sourceTree = "<group>"; };
+		7C18210D1D73C9D9009E5622 /* BoltOnServerToClientGetsResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoltOnServerToClientGetsResponse.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -728,6 +730,8 @@
 		18EEE3F61A430D6600F06DF0 /* wire */ = {
 			isa = PBXGroup;
 			children = (
+				7C18210D1D73C9D9009E5622 /* BoltOnServerToClientGetsResponse.h */,
+				7C18210C1D73C9D0009E5622 /* BoltOnClientToServerGetsRequest.h */,
 				18EEE3F81A430E0800F06DF0 /* BoltOnServerToClientPutResponse.h */,
 				18EEE3F91A430E0800F06DF0 /* BoltOnServerToClientGetResponse.h */,
 				18EEE3FA1A430E0800F06DF0 /* BoltOnClientToServerPutRequest.h */,

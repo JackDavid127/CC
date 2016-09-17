@@ -16,6 +16,7 @@
 #include "BoltOn.h"
 #include "AsynchronousReadShimBackEnd.h"
 #include "AsynchronousResolver.h"
+#include "Timing.h"
 
 namespace SimRunner
 {
@@ -36,7 +37,8 @@ namespace SimRunner
                 typedef typename TProtocolTraits::TClientInputValueType TClientInputValueType;
                 typedef typename TProtocolTraits::TTaskRunner TTaskRunner;
                 typedef typename TProtocolTraits::TBoltOnSerializer TSerializer;
-                
+                typedef SimRunner::Utilities::TTimestamp TTimestamp;
+
             public:
                 ShimDeployment(TShimId& shimDeploymentId,
                                TLocalStoreResolver& resolver,
@@ -45,21 +47,28 @@ namespace SimRunner
                 , m_localStoreResolver(resolver)
                 , m_shimBackEnd(shimBackEnd)
                 {
-                    
+
                 }
-                
+
                 const TShimId& DeploymentId() const
                 {
                     return m_shimDeploymentId;
                 }
-                
+
                 void Get(TBackingStorage& backingStorage,
                          const TStorageKey& key,
                          const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
                 {
                     m_shimBackEnd.Get(backingStorage, key, getCompleteHandler);
                 }
-                
+
+                void Gets(TBackingStorage& backingStorage,
+                         const std::vector<TStorageKey>& keys,
+                         const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
+                {
+                    m_shimBackEnd.Gets(backingStorage, keys, getCompleteHandler);
+                }
+
                 TValueWrapperPtr Put(TBackingStorage& backingStorage,
                                      const TStorageKey& key,
                                      const TClientInputValueType& value,
@@ -67,7 +76,7 @@ namespace SimRunner
                 {
                     return m_shimBackEnd.Put(backingStorage, key, value, putCompleteHandler);
                 }
-                
+
                 TValueWrapperPtr PutAfterDependency(TBackingStorage& backingStorage,
                                                     const TStorageKey& key,
                                                     const TClientInputValueType& value,
@@ -76,7 +85,7 @@ namespace SimRunner
                 {
                     return m_shimBackEnd.PutAfterDependency(backingStorage, key, value, dependency, putCompleteHandler);
                 }
-                
+
                 TValueWrapperPtr PutAfterDependencies(TBackingStorage& backingStorage,
                                                       const TStorageKey& key,
                                                       const TClientInputValueType& value,
@@ -85,12 +94,12 @@ namespace SimRunner
                 {
                     return m_shimBackEnd.PutAfterDependencies(backingStorage, key, value, dependencies, putCompleteHandler);
                 }
-                
+
                 void UpdateResolver()
                 {
                     m_localStoreResolver.Update();
                 }
-                
+
             private:
                 TShimId m_shimDeploymentId;
                 TLocalStoreResolver& m_localStoreResolver;

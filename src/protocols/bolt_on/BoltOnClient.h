@@ -11,6 +11,7 @@
 #include <boost/function.hpp>
 #include <boost/bind.hpp>
 #include <set>
+#include <vector>
 #include "Protocols.h"
 //#include "BoltOnMessaging.h"
 
@@ -30,7 +31,7 @@ namespace SimRunner
                 typedef typename TProtocolTraits::TClientQueryResponseHandler TClientQueryResponseHandler;
                 typedef typename TProtocolTraits::TBackingStorage TBackingStorage;
                 typedef typename TProtocolTraits::TValueWrapperPtr TValueWrapperPtr;
-                
+
             public:
                 BoltOnClient(const ClientIdType& clientId,
                              TShimDeployment& boltOnShim,
@@ -48,38 +49,48 @@ namespace SimRunner
                 , m_currentChainLen(0)
                 , m_maxChainLen(5)
                 {
-                    
+
                 }
-                
+
                 bool IsBusy() const
                 {
                     return m_busy;
                 }
-                
+
                 void IssueGet(const TStorageKey& key)
                 {
                     //printf("get -> %d\n", m_clientId);
-                    
+
                     boost::function<void (const TValueWrapperPtr)> binding = boost::bind(&BoltOnClient::HandleGetComplete,
                                                                                          this,
                                                                                          _1);
-                    
+
                     m_busy = true;
                     m_boltOnShim.Get(m_backingStorage, key, binding);
                 }
-                
+
+                void IssueGets(const std::vector<TStorageKey>& keys)
+                {
+                    boost::function<void (const TValueWrapperPtr)> binding = boost::bind(&BoltOnClient::HandleGetComplete,
+                                                                                         this,
+                                                                                         _1);
+
+                    m_busy = true;
+                    m_boltOnShim.Gets(m_backingStorage, keys, binding);
+                }
+
                 void IssuePut(const TStorageKey& key,
                               const TClientInputValueType& value)
                 {
                     //printf("put -> %d\n", m_clientId);
-                    
+
                     boost::function<void (const TValueWrapperPtr)> binding = boost::bind(&BoltOnClient::HandleBoltOnPutComplete,
                                                                                          this,
                                                                                          _1);
-                    
+
                     TValueWrapperPtr write = m_boltOnShim.PutAfterDependencies(m_backingStorage, key, value, m_dependencies, binding);
                     m_dependencies.clear();
-                    
+
                     if(m_fullCausality)
                     {
                         m_dependencies.insert(write);
@@ -97,38 +108,40 @@ namespace SimRunner
                         }
                     }
                 }
-                
+
                 //todo -- remove stubs needed for ec interop
                 template <typename TUnknownMsg> void HandleGetCompleteItemFound(const TUnknownMsg& _) { SR_ASSERT(false); }
                 void HandleGetCompleteItemNotFound() { SR_ASSERT(false); }
                 template <typename TUnknownMsg> void HandlePutComplete(const TUnknownMsg& _) { SR_ASSERT(false); }
-                
+
             private:
-                
+
                 void HandleGetComplete(const TValueWrapperPtr pWrite)
                 {
-                    //printf("get done -> %d\n", m_clientId);
-                    
+                    //printf("get done -> %d", m_clientId);
+
                     if(pWrite != nullptr)
                     {
+                        //printf("get done -> %d (%d, %d)\n", m_clientId, pWrite->Key(), pWrite->Value());
                         m_dependencies.insert(pWrite);
                         m_queryResponseHandler.HandleGetCompleteItemFound(pWrite);
                     }
                     else
                     {
+                        //printf("failed\n");
                         m_queryResponseHandler.HandleGetCompleteItemNotFound();
                     }
-                    
+
                     m_busy = false;
                 }
-                
+
                 void HandleBoltOnPutComplete(const TValueWrapperPtr pWrite)
                 {
                     //printf("put done -> %d\n", m_clientId);
                     m_queryResponseHandler.HandlePutComplete(pWrite);
                     m_busy = false;
                 }
-                
+
                 ClientIdType m_clientId;
                 TShimDeployment& m_boltOnShim;
                 TClientQueryResponseHandler& m_queryResponseHandler;
