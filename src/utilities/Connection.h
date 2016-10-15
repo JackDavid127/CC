@@ -85,6 +85,7 @@ namespace SimRunner
                 
                 SR_DEBUG_CONNECTION_LOG("Connected to %s on %p\n", ConnectedHostAddress().c_str(), this);
                 
+                SetupSharedPtrToSelf();
                 StartReadHeader();
                 m_messageProcessor.HandleConnectionEstablished();
             }
@@ -402,5 +403,3 @@ namespace SimRunner
 #if defined SR_DEBUG_CONNECTION_THREAD
 #undef SR_DEBUG_CONNECTION_THREAD
 #endif
-
-

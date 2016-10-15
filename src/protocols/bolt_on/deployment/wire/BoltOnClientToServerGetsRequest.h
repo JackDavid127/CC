@@ -55,7 +55,7 @@ namespace SimRunner
 
                         void ToBuffer(Utilities::ByteBuffer& buffer) const
                         {
-                            BoltOnMessageHeaderType BodySize = m_keys.size() * sizeof(TKeyType) + sizeof(m_messageType);
+                            BoltOnMessageHeaderType BodySize = m_keys.size() * sizeof(TKeyType) + sizeof(m_messageType) + sizeof(int);
                             Utilities::BufferWriter<BoltOnMessageHeaderType> itt(buffer, BodySize);
                             itt.template Write<Utilities::Byte>(m_messageType);
                             itt.template Write<int>(m_keys.size());

@@ -88,6 +88,7 @@ namespace SimRunner
                 if(findResult != m_storage.end())
                 {
                     m_storage[key].insert(std::make_pair(Utilities::Now(), value));
+                    if(m_storage[key].size()>cntValues) m_storage[key].erase(m_storage[key].begin());
                 }
                 else
                 {
@@ -114,6 +115,7 @@ namespace SimRunner
 
         private:
             TStorage m_storage;
+            const int cntValues=3;
         };
     }
 }

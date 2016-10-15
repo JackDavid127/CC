@@ -1,5 +1,5 @@
 //
-//  BoltOnServerToClientGetResponse.h
+//  BoltOnServerToClientGetsResponse.h
 //  SimRunner
 //
 //  Created by Scott on 23/10/2014.
@@ -32,14 +32,15 @@ namespace SimRunner
                         typedef typename std::vector<TClientInputValueType> TValues;
 
                     public:
-                        static TSelf CreateFound(TClientInputValueType value)
+                        static TSelf CreateFound(TValues values)
                         {
-                            return TSelf(Utilities::Byte(1), value);
+                            return TSelf(Utilities::Byte(1), values);
                         }
 
                         static TSelf CreateNotFound()
                         {
-                            return TSelf(Utilities::Byte(0), TClientInputValueType());
+                            TValues ans;
+                            return TSelf(Utilities::Byte(0), ans);
                         }
 
                         BoltOnWireMessages MessageType() const { return m_messageType; }
@@ -76,7 +77,7 @@ namespace SimRunner
                             writer
                             .template Write<Utilities::Byte>(m_messageType)
                             .template Write<Utilities::Byte>(m_foundValue)
-                            .template Write<int>(m_values.length());
+                            .template Write<int>(m_values.size());
 
                             for (auto it = m_values.begin(); it != m_values.end(); it++){
                                 WriteString(*it, writer);
@@ -85,7 +86,7 @@ namespace SimRunner
 
                     private:
                         BoltOnServerToClientGetsResponse(Utilities::Byte foundValue, TValues values)
-                        : m_messageType(Wire::ServerToClientGetResponseMsg)
+                        : m_messageType(Wire::ServerToClientGetsResponseMsg)
                         , m_foundValue(foundValue)
                         , m_values(values)
                         {

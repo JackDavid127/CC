@@ -9,6 +9,7 @@
 #include <cstdlib>
 #include <iostream>
 #include <memory>
+#include <vector>
 #include <boost/asio.hpp>
 #include <boost/noncopyable.hpp>
 #include "BoltOnWire.h"
@@ -51,6 +52,7 @@ namespace SimRunner
                             typedef typename ProtocolTraits::TPartitionServer TPartitionServer;
                             typedef typename ProtocolTraits::TNetworkExchange TNetworkExchange;
                             typedef typename ProtocolTraits::TValueWrapperDataFactory TValueWrapperDataFactory;
+                            typedef typename ProtocolTraits::TClientInputValueType TClientInputValueType;
 
                             typedef Wire::BoltOnClientToServerGetRequest<ProtocolTraits> BoltOnClientToServerGetRequest;
                             typedef Wire::BoltOnClientToServerGetsRequest<ProtocolTraits> BoltOnClientToServerGetsRequest;
@@ -142,6 +144,22 @@ namespace SimRunner
                             {
                                 m_logger.Log("BoltOnClientConnection::HandleGetCompleteItemNotFound\n");
                                 const auto msg(BoltOnServerToClientGetResponse::CreateNotFound());
+                                TBase::PostWrite(msg);
+                            }
+                            
+                            void HandleGetsCompleteItemFound(const std::vector<TValueWrapperPtr> getReply)
+                            {
+                                m_logger.Log("BoltOnClientConnection::HandleGetsCompleteItemFound\n");
+                                std::vector<TClientInputValueType> values;
+                                for (TValueWrapperPtr p: getReply) values.push_back(p->Value());
+                                const auto msg(BoltOnServerToClientGetsResponse::CreateFound(values));
+                                TBase::PostWrite(msg);
+                            }
+
+                            void HandleGetsCompleteItemNotFound()
+                            {
+                                m_logger.Log("BoltOnClientConnection::HandleGetsCompleteItemNotFound\n");
+                                const auto msg(BoltOnServerToClientGetsResponse::CreateNotFound());
                                 TBase::PostWrite(msg);
                             }
 

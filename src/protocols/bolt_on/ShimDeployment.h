@@ -64,7 +64,7 @@ namespace SimRunner
 
                 void Gets(TBackingStorage& backingStorage,
                          const std::vector<TStorageKey>& keys,
-                         const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
+                         const boost::function<void (const std::vector<TValueWrapperPtr>)>& getCompleteHandler)
                 {
                     m_shimBackEnd.Gets(backingStorage, keys, getCompleteHandler);
                 }

@@ -131,12 +131,11 @@ namespace SimRunner
                         
                         void SendNextRequest()
                         {
-                            m_logger.Log("ECClientToPartitionConnection::SendNextRequest -- Get\n");
-                            
                             TKeyType key(m_requestGenerator.NextKey());
                             
                             if(m_operationCategoryDistribution(m_randomEngine) >= 0.5)
                             {
+                                m_logger.Log("ECClientToPartitionConnection::SendNextRequest -- Get\n");
                                 const auto msg(ECClientToServerGetRequest::Create(key));
                                 TBase::PostWrite(msg);
                                 
@@ -144,6 +143,7 @@ namespace SimRunner
                             }
                             else
                             {
+                                m_logger.Log("ECClientToPartitionConnection::SendNextRequest -- Put\n");
                                 const auto msg(ECClientToServerPutRequest::Create(key, "lmao"));
                                 TBase::PostWrite(msg);
                                 
@@ -164,4 +164,3 @@ namespace SimRunner
         }
     }
 }
-

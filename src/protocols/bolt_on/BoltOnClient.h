@@ -13,6 +13,7 @@
 #include <set>
 #include <vector>
 #include "Protocols.h"
+#include <cstdio>
 //#include "BoltOnMessaging.h"
 
 namespace SimRunner
@@ -71,7 +72,7 @@ namespace SimRunner
 
                 void IssueGets(const std::vector<TStorageKey>& keys)
                 {
-                    boost::function<void (const TValueWrapperPtr)> binding = boost::bind(&BoltOnClient::HandleGetComplete,
+                    boost::function<void (const std::vector<TValueWrapperPtr>)> binding = boost::bind(&BoltOnClient::HandleGetsComplete,
                                                                                          this,
                                                                                          _1);
 
@@ -89,6 +90,9 @@ namespace SimRunner
                                                                                          _1);
 
                     TValueWrapperPtr write = m_boltOnShim.PutAfterDependencies(m_backingStorage, key, value, m_dependencies, binding);
+                    printf("Use Count: ");
+                    for (const TValueWrapperPtr &p: m_dependencies) printf("%d ",p.use_count());
+                    printf("\n");
                     m_dependencies.clear();
 
                     if(m_fullCausality)
@@ -130,6 +134,25 @@ namespace SimRunner
                     {
                         //printf("failed\n");
                         m_queryResponseHandler.HandleGetCompleteItemNotFound();
+                    }
+
+                    m_busy = false;
+                }
+                
+                void HandleGetsComplete(const std::vector<TValueWrapperPtr> pWrite)
+                {
+                    //printf("get done -> %d", m_clientId);
+
+                    if(pWrite.size() > 0)
+                    {
+                        //printf("get done -> %d (%d, %d)\n", m_clientId, pWrite->Key(), pWrite->Value());
+                        for (auto p: pWrite) m_dependencies.insert(p);
+                        m_queryResponseHandler.HandleGetsCompleteItemFound(pWrite);
+                    }
+                    else
+                    {
+                        //printf("failed\n");
+                        m_queryResponseHandler.HandleGetsCompleteItemNotFound();
                     }
 
                     m_busy = false;

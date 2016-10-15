@@ -9,6 +9,7 @@
 
 #include <string>
 #include "SimRunnerAssert.h"
+#include <cstdio>
 
 namespace SimRunner
 {
@@ -41,7 +42,7 @@ namespace SimRunner
                 SR_ASSERT(HasFreeEntryAvailable());
                 -- m_freeCount;
                 
-                //printf("Alloc from pool %s: pool has %lu free items left.\n", m_poolName.c_str(), m_freeCount);
+                printf("Alloc from pool %s: pool has %lu free items left.\n", m_poolName.c_str(), m_freeCount);
                 
                 TPoolItem* pEntry(&m_entries[m_nextFree]);
                 
@@ -61,6 +62,7 @@ namespace SimRunner
             {
                 ++ m_freeCount;
                 item.Release();
+                printf("Item Return to pool %s. %lu free items left.\n",m_poolName.c_str(),m_freeCount);
             }
             
         private:

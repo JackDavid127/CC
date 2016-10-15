@@ -116,9 +116,10 @@ namespace SimRunner
 
                 void Gets(TBackingStorage& backingStorage,
                          const std::vector<TStorageKey>& keys,
-                         const boost::function<void (const TValueWrapperPtr)>& getCompleteHandler)
+                         const boost::function<void (const std::vector<TValueWrapperPtr>)>& getCompleteHandler)
                 {
                     Utilities::TTimestamp mst, med;
+                    std::vector<TValueWrapperPtr> ans;
                     for (auto it=keys.begin();it!=keys.end();it++){
                         if(m_maxNumReadsECDS == 0)
                         {
@@ -129,17 +130,19 @@ namespace SimRunner
 
                             if(m_localShimStorage.TryGetValue(*it, pValueWrapper, st, ed))
                             {
-                                printf("trans: ");getCompleteHandler(*pValueWrapper);
-                                if(it == keys.begin()) mst=st, med=ed;
+                                printf("trans: ");
+                                if(it == keys.begin()) mst=st, med=ed, ans.push_back(*pValueWrapper);
                                 else if(st>=med || ed<=mst){
                                     printf("Invalid Interval\n");
                                     if(m_localShimStorage.TryGetValue(*it, pValueWrapper, mst)){
-                                        printf("1trans: ");getCompleteHandler(*pValueWrapper);
+                                        printf("1trans: ");ans.push_back(*pValueWrapper);
                                     }
                                     else if(m_localShimStorage.TryGetValue(*it, pValueWrapper, med)){
-                                        printf("2trans: ");getCompleteHandler(*pValueWrapper);
+                                        printf("2trans: ");ans.push_back(*pValueWrapper);
                                     }
                                     else{
+                                        ans.clear();
+                                        getCompleteHandler(ans);
                                         printf("Read Transaction Failed");
                                         return;
                                     }
@@ -152,11 +155,13 @@ namespace SimRunner
                             else
                             {
                                 //self.__real_null_reads_count.increment_and_get()
-                                getCompleteHandler(nullptr);
+                                ans.clear();
+                                getCompleteHandler(ans);
                                 printf("Read Transaction Failed\n");
                                 return;
                             }
                         }
+                        /*
                         else
                         {
                             boost::function<void (const TBoltOnSerializedValueTypePtr)> binding = boost::bind(&AsynchronousReadShimBackEnd::HandleGetComplete,
@@ -168,7 +173,9 @@ namespace SimRunner
 
                             backingStorage.Get(*it, binding);
                         }
+                        */
                     }
+                    getCompleteHandler(ans);
                     printf("Read Transaction Succeeded\n");
                 }
 

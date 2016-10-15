@@ -117,8 +117,8 @@ namespace
     using namespace SimRunner::Utilities;
     typedef int TMetrics;
     typedef int TDelayTracking;
-    //typedef StandardErrorLogger TLogger;
-    typedef NullLogger TLogger;
+    typedef StandardErrorLogger TLogger;
+    //typedef NullLogger TLogger;
     typedef NumericStringHashProvider TKeyHasher;
 
     // key utils

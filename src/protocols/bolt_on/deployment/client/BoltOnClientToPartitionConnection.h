@@ -143,19 +143,29 @@ namespace SimRunner
 
                         void SendNextRequest()
                         {
-                            m_logger.Log("BoltOnClientToPartitionConnection::SendNextRequest -- Get\n");
-
                             TKeyType key(m_requestGenerator.NextKey());
 
                             if(m_operationCategoryDistribution(m_randomEngine) >= 0.5)
                             {
-                                const auto msg(ClientToServerGetRequest::Create(key));
-                                TBase::PostWrite(msg);
+                                if(m_operationCategoryDistribution(m_randomEngine) >= 0.5){
+                                    m_logger.Log("BoltOnClientToPartitionConnection::SendNextRequest -- GetS\n");
+                                    std::vector<TKeyType> keys;
+                                    keys.push_back(key);
+                                    keys.push_back(m_requestGenerator.NextKey());
+                                    const auto msg(ClientToServerGetsRequest::Create(keys));
+                                    TBase::PostWrite(msg);
+                                }
+                                else{
+                                    m_logger.Log("BoltOnClientToPartitionConnection::SendNextRequest -- Get\n");
+                                    const auto msg(ClientToServerGetRequest::Create(key));
+                                    TBase::PostWrite(msg);
+                                }
 
                                 m_connectionStats.RequestStarted(true);
                             }
                             else
                             {
+                                m_logger.Log("BoltOnClientToPartitionConnection::SendNextRequest -- Put\n");
                                 const auto msg(ClientToServerPutRequest::Create(key, "lmao"));
                                 TBase::PostWrite(msg);
 
